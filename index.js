@@ -1,15 +1,25 @@
-const hamburgerIconOpen = document.querySelector('.hamburger-open');
-const hamburgerIconClose = document.querySelector('.hamburger-close');
 const navContainer = document.querySelector('nav');
 const navItems = document.querySelector('.nav-items');
 const navBtn = document.querySelector(".nav-btn");
 
-navBtn.addEventListener('click',  function() {
-    navBtn.classList.toggle("close");
-    addClassName(navContainer);
-    addClassName(navItems);
+navBtn.addEventListener('click', () => {
+    toggleClassName(navBtn);
+    toggleClassName(navContainer);
+    toggleClassName(navItems);
 })
 
-function addClassName(element) {
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) {
+        removeClassName(navBtn);
+        removeClassName(navContainer);
+        removeClassName(navItems);
+    } 
+  });
+
+function toggleClassName(element) {
     element.classList.toggle("toggle");
+}
+
+function removeClassName(element) {
+    element.classList.remove("toggle");
 }

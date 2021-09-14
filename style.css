@@ -24,7 +24,6 @@ nav {
     background-color: var(--blue);
     display: flex;
     flex-direction: column;
-    text-align: center;
 }
 
 nav.toggle {
@@ -50,23 +49,18 @@ nav h1 {
 }
 
 .nav-btn {
-    padding: 0.2rem;
-    position: absolute;
-    right: 15px;
-    height: 21px;
-    width: 22px;
-    /* background-color: transparent; */
     background: url("images/group.svg") no-repeat center;
     border: none;
     cursor: pointer;
+    height: 21px;
+    padding: 0.2rem;
+    position: absolute;
+    right: 15px;
+    width: 22px;
 }
 
-.nav-btn.close {
+.nav-btn.toggle {
     background: url("images/shape.svg") no-repeat center;
-}
-
-.nav ul {
-    display: unset;
 }
 
 .nav-items {
@@ -92,4 +86,33 @@ nav h1 {
 
 .nav-item:hover {
     background-color: var(--menu-hover);
+}
+
+@media screen and (min-width: 1024px) {
+    nav {
+        align-items: center;
+        flex-direction: row;
+        height: 70px;
+        padding: 26px 30px;
+    }
+
+    #header {
+        display: none;
+    }
+
+    .nav-items {
+        color: white;
+        column-gap: 50px;
+        display: flex;
+        flex-direction: row;
+        font-family: ProximaNova;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 0;
+    }
+
+    .nav-item {
+        margin: 0;
+        padding: 0.5rem 0.5rem;
+    }
 }
