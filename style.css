@@ -7,88 +7,89 @@
     src: url("font/proxima-nova-regular.woff");
 }
 
-/* COLORS */
 :root {
     --blue: #4f88ef;
     --menu-hover: #1166a5;
 }
 
-/* LAYOUT */
 * {
+    box-sizing: border-box;
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
-    box-sizing: border-box;
 }
 
 nav {
+    align-items: center;
     background-color: var(--blue);
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
 
 nav.toggle {
     height: 100vh;
 }
 
-/* TITLE + HAMBURGER MENU OPEN */
-#rectangle-1 {
-    background-color: var(--blue);
-    width: 100%;
-    height: 50px;
-    padding: 12px;
-    display: flex;
-    justify-content: center;
+#header {
     align-items: center;
+    background-color: var(--blue);
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    padding: 12px;
     position: relative;
+    width: 100%;
 }
 
 nav h1 {
     color: white;
     font-family: Bello Script;
     font-size: 29px;
-    font-weight: lighter;
+    font-weight: 400;
 }
 
-nav img {
+.nav-btn {
+    padding: 0.2rem;
     position: absolute;
     right: 15px;
-    padding: 0.2rem;
+    height: 21px;
+    width: 22px;
+    /* background-color: transparent; */
+    background: url("images/group.svg") no-repeat center;
+    border: none;
+    cursor: pointer;
 }
 
-nav img:hover {
-    cursor: pointer;
+.nav-btn.close {
+    background: url("images/shape.svg") no-repeat center;
 }
 
 .nav ul {
     display: unset;
 }
 
-/* MENU OPENED */
 .nav-items {
     display: none;
 }
 
 .nav-items.toggle {
-    display: unset;
+    color: white;
+    display: block;
     font-family: ProximaNova;
     font-size: 24px;
-    color: white;
     font-weight: 600;
     padding-top: 20px;
 }
 
 .nav-item {
     border-radius: 5px;
-    width: fit-content;
-    margin: 45px auto 0 auto;
+    cursor: pointer;
+    margin: 43px auto 0 auto;
     padding: 0.2rem 0.7rem;
+    width: fit-content;
 }
 
 .nav-item:hover {
     background-color: var(--menu-hover);
-    cursor: pointer;
 }
-

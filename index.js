@@ -1,24 +1,15 @@
-//change src in <img class="menu-open" src="images/group.svg"> to
-//"
-
-//nav full blauw
-
-const hamburgerIcon = document.querySelector('.nav-toggle');
+const hamburgerIconOpen = document.querySelector('.hamburger-open');
+const hamburgerIconClose = document.querySelector('.hamburger-close');
 const navContainer = document.querySelector('nav');
 const navItems = document.querySelector('.nav-items');
+const navBtn = document.querySelector(".nav-btn");
 
-
-
-hamburgerIcon.addEventListener('click',  function() {
-    if (navContainer.classList.contains("toggle")) {
-        hamburgerIcon.src="images/group.svg";
-        navContainer.classList.remove("toggle");
-        navItems.classList.remove("toggle");
-
-    } else {
-        hamburgerIcon.src="images/shape.svg";
-        navContainer.classList.add("toggle");
-        navItems.classList.add("toggle");
-        navContainer.classList.contains("toggle");
-    }
+navBtn.addEventListener('click',  function() {
+    navBtn.classList.toggle("close");
+    addClassName(navContainer);
+    addClassName(navItems);
 })
+
+function addClassName(element) {
+    element.classList.toggle("toggle");
+}
