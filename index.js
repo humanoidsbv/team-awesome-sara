@@ -17,9 +17,9 @@ window.addEventListener('resize', () => {
   });
 
 function toggleClassName(element) {
-    element.classList.toggle("toggle");
+    element.classList.toggle("active");
 }
 
 function removeClassName(element) {
-    element.classList.remove("toggle");
+    element.classList.remove("active");
 }

@@ -26,11 +26,11 @@ nav {
     flex-direction: column;
 }
 
-nav.toggle {
+nav.active {
     height: 100vh;
 }
 
-#header {
+.header {
     align-items: center;
     background-color: var(--blue);
     display: flex;
@@ -53,13 +53,13 @@ nav h1 {
     border: none;
     cursor: pointer;
     height: 21px;
-    padding: 0.2rem;
+    padding: 3px;
     position: absolute;
     right: 15px;
     width: 22px;
 }
 
-.nav-btn.toggle {
+.nav-btn.active {
     background: url("images/shape.svg") no-repeat center;
 }
 
@@ -71,7 +71,7 @@ nav h1 {
     display: none;
 }
 
-.nav-items.toggle {
+.nav-items.active {
     color: white;
     display: block;
     font-family: ProximaNova;
@@ -83,8 +83,8 @@ nav h1 {
 .nav-item {
     border-radius: 5px;
     cursor: pointer;
-    margin: 43px auto 0 auto;
-    padding: 0.2rem 0.7rem;
+    margin: 44px auto 0 auto;
+    padding: 3px 11px;
     width: fit-content;
 }
 
@@ -101,7 +101,7 @@ nav h1 {
         padding: 26px 30px;
     }
 
-    #header {
+    .header {
         display: none;
     }
 
@@ -118,7 +118,7 @@ nav h1 {
 
     .nav-item {
         margin: 0;
-        padding: 0.5rem 0.5rem;
+        padding: 8px;
     }
 
     .profile-btn {
@@ -137,7 +137,7 @@ nav h1 {
     }
 
     .profile-btn::after {
-        content: url('/images/Arrow-down.svg');
+        content: url('/images/arrow-down.svg');
         height: 10px;
         position: absolute;
         right: -15px;
@@ -148,7 +148,7 @@ nav h1 {
         background-color: sandybrown;
         border-radius: 50%;
         height: 32px;
-        margin: 1px;
+        margin: 2px;
         width: 32px;
     }
 }
