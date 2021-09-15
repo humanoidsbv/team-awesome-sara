@@ -1,25 +1,33 @@
 const navContainer = document.querySelector('nav');
-const navItems = document.querySelector('.nav-items');
-const navBtn = document.querySelector(".nav-btn");
+const navMenu = document.querySelector('.navigation__menu');
+const hamburgerMenuBtn = document.querySelector(".header__button");
 
-navBtn.addEventListener('click', () => {
-    toggleClassName(navBtn);
-    toggleClassName(navContainer);
-    toggleClassName(navItems);
+hamburgerMenuBtn.addEventListener('click', () => {
+    openCloseNav()
 })
 
 window.addEventListener('resize', () => {
     if (window.innerWidth >= 1024) {
-        removeClassName(navBtn);
-        removeClassName(navContainer);
-        removeClassName(navItems);
+        closeMobileNav()
     } 
-  });
+});
 
-function toggleClassName(element) {
+function openCloseNav() {
+    toggleActiveState(hamburgerMenuBtn);    //change hamburger menu icon into a cross icon
+    toggleActiveState(navContainer);        //resizes nav container to a full page
+    toggleActiveState(navMenu);             //opens the list of navigation items
+}
+
+function closeMobileNav() {
+    removeActiveState(hamburgerMenuBtn);
+    removeActiveState(navContainer);
+    removeActiveState(navMenu);
+}
+
+function toggleActiveState(element) {
     element.classList.toggle("active");
 }
 
-function removeClassName(element) {
+function removeActiveState(element) {
     element.classList.remove("active");
 }
