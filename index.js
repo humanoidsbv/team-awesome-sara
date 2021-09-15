@@ -1,18 +1,18 @@
 const navContainer = document.querySelector('nav');
-const navItems = document.querySelector('.nav-items');
-const navBtn = document.querySelector(".nav-btn");
+const navMenu = document.querySelector('.navigation__menu');
+const navBtn = document.querySelector(".header__button");
 
 navBtn.addEventListener('click', () => {
     toggleClassName(navBtn);
     toggleClassName(navContainer);
-    toggleClassName(navItems);
+    toggleClassName(navMenu);
 })
 
 window.addEventListener('resize', () => {
     if (window.innerWidth >= 1024) {
         removeClassName(navBtn);
         removeClassName(navContainer);
-        removeClassName(navItems);
+        removeClassName(navMenu);
     } 
   });
 
