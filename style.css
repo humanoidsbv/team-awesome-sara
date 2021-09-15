@@ -13,87 +13,142 @@
 }
 
 * {
+    box-sizing: border-box;
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
-    box-sizing: border-box;
 }
 
-/* LAYOUT */
 nav {
-    height: 50px;
-    margin-bottom: 40px;
+    align-items: center;
     background-color: var(--blue);
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-nav.toggle {
+nav.active {
     height: 100vh;
 }
 
-/* TITLE + HAMBURGER MENU OPEN */
-#rectangle-1 {
-    background-color: var(--blue);
-    width: 100%;
-    padding: 12px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
+.header {
     align-items: center;
+    background-color: var(--blue);
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    padding: 12px;
     position: relative;
+    width: 100%;
 }
 
 nav h1 {
     color: white;
     font-family: Bello Script;
     font-size: 29px;
-    font-weight: lighter;
-    /* margin: 0 5rem; */
+    font-weight: 400;
 }
 
-nav img {
-    position: absolute;
-    right: 5%;
-}
-
-nav img:hover {
+.nav-btn {
+    background: url("images/group.svg") no-repeat center;
+    border: none;
     cursor: pointer;
+    height: 21px;
+    padding: 3px;
+    position: absolute;
+    right: 15px;
+    width: 22px;
 }
 
-.nav ul {
-    display: unset;
+.nav-btn.active {
+    background: url("images/shape.svg") no-repeat center;
 }
 
-/* MENU OPENED */
-#retangle-2 {
-    margin-bottom: 40px;
-    background-color: var(--blue);
+.profile-btn {
+    display: none;
 }
 
 .nav-items {
     display: none;
 }
 
-.nav-items.toggle {
-    display: unset;
+.nav-items.active {
+    color: white;
+    display: block;
     font-family: ProximaNova;
     font-size: 24px;
-    color: white;
     font-weight: 600;
-    margin-top: 60px;
+    padding-top: 20px;
 }
 
 .nav-item {
-    margin: 2.5rem 0;
-    padding: 0.35rem 0.8rem;
     border-radius: 5px;
+    cursor: pointer;
+    margin: 44px auto 0 auto;
+    padding: 3px 11px;
+    width: fit-content;
 }
 
 .nav-item:hover {
     background-color: var(--menu-hover);
-    cursor: pointer;
 }
 
+@media screen and (min-width: 1024px) {
+    nav {
+        align-items: center;
+        flex-direction: row;
+        height: 70px;
+        justify-content: space-between;
+        padding: 26px 30px;
+    }
+
+    .header {
+        display: none;
+    }
+
+    .nav-items {
+        color: white;
+        column-gap: 50px;
+        display: flex;
+        flex-direction: row;
+        font-family: ProximaNova;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 0;
+    }
+
+    .nav-item {
+        margin: 0;
+        padding: 8px;
+    }
+
+    .profile-btn {
+        align-items: center;
+        background: url('/images/humanoids-logo.png') no-repeat center #fff;
+        background-position: 20px;
+        background-size: 65px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        height: 35px;
+        justify-content: flex-end;
+        position: relative;
+        width: 135px;
+    }
+
+    .profile-btn::after {
+        content: url('/images/arrow-down.svg');
+        height: 10px;
+        position: absolute;
+        right: -15px;
+        top: 8px;
+    }
+
+    .profile-img {
+        background-color: sandybrown;
+        border-radius: 50%;
+        height: 32px;
+        margin: 2px;
+        width: 32px;
+    }
+}
