@@ -1,11 +1,9 @@
 import * as Styled from '../styles/ProfileButton.styled';
 
-const ProfileButton = () => {
+export const ProfileButton = () => {
   return (
     <Styled.ProfileButton>
-        <img/>
+      <img/>
     </Styled.ProfileButton>
   )
 }
-
-export default ProfileButton;
