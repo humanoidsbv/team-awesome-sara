@@ -1,6 +1,11 @@
-import * as Styled from '../styles/Navigation.styled';
+import React from "react";
+import * as Styled from "../styles/Navigation.styled";
 
-export function Navigation ({ isOpen }) {
+interface NavigationProps {
+  isOpen: boolean;
+}
+
+export function Navigation({ isOpen }: NavigationProps) {
   return (
     <Styled.Navigation isOpen={isOpen}>
       <li>Timesheets</li>
@@ -9,5 +14,5 @@ export function Navigation ({ isOpen }) {
       <li>Clients</li>
       <li>Documents</li>
     </Styled.Navigation>
-  )
+  );
 }

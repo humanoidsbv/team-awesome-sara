@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Header = styled.nav`
   align-items: center;
@@ -13,7 +13,7 @@ export const Header = styled.nav`
     padding: 0 46px 0 30px;
     flex-direction: row;
   }
-    
+
   > div {
     align-items: center;
     display: flex;
@@ -22,7 +22,7 @@ export const Header = styled.nav`
     padding: 12px;
     position: relative;
     width: 100%;
-    
+
     @media (min-width: 1024px) {
       display: none;
     }

@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const ProfileButton = styled.button`
+export const Profile = styled.button`
   display: none;
-  
+
   @media (min-width: 1024px) {
-    background: url('/images/humanoids-logo.png') no-repeat center #fff;
+    background: url("/images/humanoids-logo.png") no-repeat center #fff;
     background-position: 20px;
     background-size: 65px;
     border-radius: 50px;

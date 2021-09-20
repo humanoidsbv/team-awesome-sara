@@ -1,14 +1,14 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Navigation = styled.ul`
+export const Navigation = styled.ul<{ isOpen: boolean }>`
   align-items: center;
   color: white;
-  display: ${(props) => props.isOpen ? 'flex' : 'none'};
+  display: ${(props) => (props.isOpen ? "flex" : "none")};
   flex-direction: column;
   font-family: ProximaNova;
   font-size: 24px;
   font-weight: 600;
-  height: ${(props) => props.isOpen ? '100' : '0'}vh;
+  height: ${(props) => (props.isOpen ? "100" : "0")}vh;
   margin-top: 60px;
   row-gap: 44px;
 
@@ -24,7 +24,7 @@ export const Navigation = styled.ul`
     border-radius: 5px;
     cursor: pointer;
     width: fit-content;
-      
+
     @media (min-width: 1024px) {
       margin: 0;
       padding: 8px;
