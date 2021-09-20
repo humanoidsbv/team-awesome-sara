@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProfileButton = styled.button`
+export const Profile = styled.button`
   display: none;
 
   @media (min-width: 1024px) {

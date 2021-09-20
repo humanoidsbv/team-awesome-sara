@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import * as Styled from "../styles/Header.styled";
 import { HamburgerButton } from "./HamburgerButton";
 import { Navigation } from "./Navigation";
-import { ProfileButton } from "./ProfileButton";
+import { Profile } from "./Profile";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
   const toggleIsOpen = () => setIsOpen(!isOpen);
 
   return (
@@ -15,7 +15,7 @@ export function Header() {
         <HamburgerButton isOpen={isOpen} onClick={toggleIsOpen} />
       </div>
       <Navigation isOpen={isOpen} />
-      <ProfileButton />
+      <Profile />
     </Styled.Header>
   );
 }

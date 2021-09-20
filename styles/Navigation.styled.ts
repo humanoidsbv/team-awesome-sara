@@ -35,7 +35,3 @@ export const Navigation = styled.ul<{ isOpen: boolean }>`
     background-color: #1166a5;
   }
 `;
-
-// export const Navigation = styled.ul<{ isOpen: boolean }>`
-
-// display: ${(props : {isOpen : boolean}) => props.isOpen ? 'flex' : 'none'};
