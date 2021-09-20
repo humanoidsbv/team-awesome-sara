@@ -5,8 +5,8 @@ import { Header } from '../components/Header';
 function Homepage() {
   return (
     <>
-    <GlobalStyle />
-    <Header />
+      <GlobalStyle />
+      <Header />
     </>
   )
 };

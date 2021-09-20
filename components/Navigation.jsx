@@ -1,6 +1,6 @@
 import * as Styled from '../styles/Navigation.styled';
 
-export const Navigation = ({ isOpen }) => {
+export function Navigation ({ isOpen }) {
   return (
     <Styled.Navigation isOpen={isOpen}>
       <li>Timesheets</li>

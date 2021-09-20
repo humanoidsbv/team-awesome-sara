@@ -4,7 +4,7 @@ import { HamburgerButton } from './HamburgerButton';
 import { Navigation } from './Navigation';
 import { ProfileButton } from './ProfileButton';
 
-export const Header = () => {
+export function Header () {
   const [isOpen, setIsOpen] = useState(false);
   const toggleIsOpen = () => setIsOpen(!isOpen);
   

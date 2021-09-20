@@ -1,9 +1,9 @@
 import * as Styled from '../styles/ProfileButton.styled';
 
-export const ProfileButton = () => {
+export function ProfileButton () {
   return (
     <Styled.ProfileButton>
-      <img/>
+      <img src="https://static.thenounproject.com/png/1845140-200.png" alt=""/>
     </Styled.ProfileButton>
   )
 }
