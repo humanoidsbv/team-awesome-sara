@@ -8,10 +8,10 @@ export const Header = styled.nav`
   justify-content: center;
 
   @media (min-width: 1024px) {
+    flex-direction: row;
     height: 50px;
     justify-content: space-between;
     padding: 0 46px 0 30px;
-    flex-direction: row;
   }
 
   > div {
