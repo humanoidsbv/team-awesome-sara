@@ -1,5 +1,6 @@
 import React from "react";
-import * as Styled from "../styles/Navigation.styled";
+
+import * as Styled from "./Navigation.styled";
 
 interface NavigationProps {
   isOpen: boolean;
