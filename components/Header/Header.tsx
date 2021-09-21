@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as Styled from "../styles/Header.styled";
+import * as Styled from "../../styles/Header/Header.styled";
 import { HamburgerButton } from "./HamburgerButton";
 import { Navigation } from "./Navigation";
 import { Profile } from "./Profile";

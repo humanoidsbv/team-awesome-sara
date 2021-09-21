@@ -1,5 +1,5 @@
 import React from "react";
-import * as Styled from "../styles/Profile.styled";
+import * as Styled from "../../styles/Header/Profile.styled";
 
 export function Profile() {
   return (
