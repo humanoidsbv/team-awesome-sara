@@ -1,12 +1,12 @@
 import React from "react";
 
 import * as Styled from "./PageContainer.styled";
-import { NewTimeEntry } from "./NewTimeEntry/NewTimeEntry";
+import { TimeEntriesPage } from "./TimeEntriesPage/TimeEntriesPage";
 
 export function PageContainer() {
   return (
     <Styled.PageContainer>
-      <NewTimeEntry />
+      <TimeEntriesPage />
     </Styled.PageContainer>
   );
 }

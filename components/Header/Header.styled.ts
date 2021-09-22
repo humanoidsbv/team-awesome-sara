@@ -20,7 +20,6 @@ export const Header = styled.nav`
     height: 50px;
     justify-content: center;
     padding: 12px;
-    position: relative;
     width: 100%;
 
     @media (min-width: 1024px) {
