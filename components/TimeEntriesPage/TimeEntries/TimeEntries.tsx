@@ -1,33 +1,49 @@
 import React from "react";
 
-import { TimeEntry } from "./TimeEntry/TimeEntry";
-
-const mockData = [
-  {
-    client: "Heineken",
-    startTime: "09:00",
-    stopTime: "17:00",
-    date: "16-04-2021",
-  },
-  {
-    client: "Port of Rotterdam",
-    startTime: "07:00",
-    stopTime: "19:00",
-    date: "17-04-2021",
-  },
-];
+import * as Styled from "./TimeEntries.styled";
+import { timeEntries } from "../../../fixtures/time-entries";
+import { getDate } from "../../../services/Format/Date";
+import { EntryDate } from "./EntryDate/EntryDate";
+import { EntryCard } from "./EntryCard/EntryCard";
 
 export function TimeEntries() {
-  return mockData.map((item) => (
-    <TimeEntry
-      client={item.client}
-      date={item.date}
-      startTime={item.startTime}
-      stopTime={item.stopTime}
-    />
-  ));
-}
+  return (
+    <Styled.TimeEntries>
+      {timeEntries.map((timeEntry, i, array) => {
+        const currDate = getDate(timeEntry.startTimestamp);
 
-// return mockData.map((item) => (
-//   <TimeEntry mockData={mockData} />;
-// ));
+        const firstInList = i === 0 || currDate !== getDate(array[i - 1]?.startTimestamp);
+        const lastInList =
+          i === array.length - 1 || currDate !== getDate(array[i + 1]?.startTimestamp);
+
+        const isTop = firstInList && !lastInList;
+        const isBottom = !firstInList && lastInList;
+        const isCenter = !firstInList && !lastInList;
+
+        const borderState = isTop
+          ? "isTop"
+          : isBottom
+          ? "isBottom"
+          : isCenter
+          ? "isCenter"
+          : "isSingle";
+
+        return (
+          <>
+            {(i === 0 || currDate !== getDate(timeEntries[i - 1].startTimestamp)) && (
+              <EntryDate date={timeEntry.startTimestamp} />
+            )}
+
+            <EntryCard
+              key={timeEntry.id}
+              client={timeEntry.client}
+              startTime={timeEntry.startTimestamp}
+              stopTime={timeEntry.stopTimestamp}
+              borderState={borderState}
+            />
+          </>
+        );
+      })}
+    </Styled.TimeEntries>
+  );
+}

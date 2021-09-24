@@ -11,7 +11,6 @@ export const Primary = styled.button`
   font-size: 14px;
   height: 36px;
   justify-content: center;
-  margin-bottom: 20px;
   padding: 9px;
   width: 100%;
 
