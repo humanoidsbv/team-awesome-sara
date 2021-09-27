@@ -3,11 +3,11 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
+    font-family: ProximaNova;
     list-style: none;
     margin: 0;
     padding: 0;
     text-align: center;
-    font-family: ProximaNova;
   }
 
   @font-face {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const EntryDate = styled.h1`
+export const TimeEntryDate = styled.h1`
   color: #7f8fa4;
   font-family: ProximaNova;
   font-size: 16px;

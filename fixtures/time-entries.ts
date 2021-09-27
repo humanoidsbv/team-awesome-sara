@@ -42,18 +42,3 @@ export const mockTimeEntries = [
     stopTimestamp: "2021-09-23T18:00:00.000Z",
   },
 ];
-
-function getDate(string) {
-  const date = new Date(string);
-  const formattedDate = date.toLocaleDateString("nl-NL", {
-    day: "numeric",
-    month: "2-digit",
-    year: "numeric",
-  });
-
-  return formattedDate;
-}
-
-export const timeEntries = [...mockTimeEntries].sort((a, b) =>
-  getDate(a.startTimestamp) > getDate(b.startTimestamp) ? 1 : -1,
-);
