@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+interface TimeEntryWrapperProps {
+  isBottom: boolean;
+  isCenter: boolean;
+  isTop: boolean;
+}
+
 export const TimeEntries = styled.div`
   align-items: flex-start;
   display: flex;
@@ -12,21 +18,10 @@ export const TimeEntries = styled.div`
   }
 `;
 
-export const TimeEntryWrapper = styled.div<{
-  isTop: boolean;
-  isBottom: boolean;
-  isCenter: boolean;
-}>`
+export const TimeEntryWrapper = styled.div<TimeEntryWrapperProps>`
   border-left: solid 4px #4f88ef;
   border-radius: 4px;
   width: 100%;
-
-  ${(props) =>
-    props.isTop &&
-    `
-    border-radius: 0;
-    border-top-left-radius: 4px;
-  `}
 
   ${(props) =>
     props.isBottom &&
@@ -39,5 +34,12 @@ export const TimeEntryWrapper = styled.div<{
     props.isCenter &&
     `
     border-radius: 0;
+  `}
+
+  ${(props) =>
+    props.isTop &&
+    `
+    border-radius: 0;
+    border-top-left-radius: 4px;
   `}
 `;

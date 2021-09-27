@@ -1,9 +1,16 @@
 import styled from "styled-components";
 
-export const TimeEntry = styled.div<{ isTop: boolean; isBottom: boolean; isCenter: boolean }>`
+interface TimeEntryProps {
+  isBottom: boolean;
+  isCenter: boolean;
+  isTop: boolean;
+}
+
+export const TimeEntry = styled.div<TimeEntryProps>`
   align-items: center;
   border: solid 1px #e6eaee;
   border-bottom-right-radius: 4px;
+  border-left: none;
   border-top-right-radius: 4px;
   display: flex;
   height: 82px;
@@ -11,19 +18,11 @@ export const TimeEntry = styled.div<{ isTop: boolean; isBottom: boolean; isCente
   overflow: hidden;
   padding: 16px;
   width: 100%;
-  border-left: none;
 
   > p {
     font-size: 18px;
     font-weight: 600;
   }
-
-  ${(props) =>
-    props.isTop &&
-    `
-    border-radius: 0;
-    border-top-right-radius: 4px;
-  `}
 
   ${(props) =>
     props.isBottom &&
@@ -36,8 +35,15 @@ export const TimeEntry = styled.div<{ isTop: boolean; isBottom: boolean; isCente
   ${(props) =>
     props.isCenter &&
     `
-    border-top: 0;
     border-radius: 0;
+    border-top: 0;
+  `}
+
+   ${(props) =>
+    props.isTop &&
+    `
+    border-radius: 0;
+    border-top-right-radius: 4px;
   `}
 
   @media (min-width: 1024px) {

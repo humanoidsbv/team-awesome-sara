@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const ComponentContainer = styled.div`
+export const Container = styled.div`
   align-items: center;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   margin: 24px;
 
   @media (min-width: 1024px) {

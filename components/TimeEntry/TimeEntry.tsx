@@ -21,7 +21,7 @@ export function TimeEntry({
   stopTime,
 }: TimeEntryProps) {
   return (
-    <Styled.TimeEntry isTop={isTop} isBottom={isBottom} isCenter={isCenter}>
+    <Styled.TimeEntry isBottom={isBottom} isCenter={isCenter} isTop={isTop}>
       <p>{client}</p>
       <p>
         {getTime(startTime)} - {getTime(stopTime)}
