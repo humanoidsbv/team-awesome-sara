@@ -1,18 +1,18 @@
 import React from "react";
 
 import * as Styled from "./EntryCard.styled";
-import { getTime } from "../../../../services/Format/Time";
+import { getTime } from "../../../../services/format/time";
 
 interface EntryCardProps {
-  borderState: string;
+  borderPosition: string;
   client: string;
   startTime: string;
   stopTime: string;
 }
 
-export function EntryCard({ borderState, client, startTime, stopTime }: EntryCardProps) {
+export function EntryCard({ borderPosition, client, startTime, stopTime }: EntryCardProps) {
   return (
-    <Styled.EntryCard borderState={borderState}>
+    <Styled.EntryCard borderPosition={borderPosition}>
       <p>{client}</p>
       <p>
         {getTime(startTime)} - {getTime(stopTime)}

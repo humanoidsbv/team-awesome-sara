@@ -8,7 +8,6 @@ export const TimeEntries = styled.div`
 
   @media (min-width: 1024px) {
     font-size: 24px;
-    font-weight: 400;
     margin: 23px 0 0 0;
   }
 `;
