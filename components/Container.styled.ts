@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
-export const PageContainer = styled.div`
+export const Container = styled.div`
   align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 24px;
+
+  @media (min-width: 1024px) {
+    margin: 24px 200px;
+  }
 `;
