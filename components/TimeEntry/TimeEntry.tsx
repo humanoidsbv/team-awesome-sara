@@ -24,7 +24,9 @@ export function TimeEntry({
     <Styled.TimeEntry isBottom={isBottom} isCenter={isCenter} isTop={isTop}>
       <p>{client}</p>
       <p>
+        {/* eslint-disable */}
         {getTime(startTime)} - {getTime(stopTime)}
+        {/* eslint-enable */}
       </p>
     </Styled.TimeEntry>
   );

@@ -12,12 +12,13 @@ export function TimeEntries() {
   );
   return (
     <Styled.TimeEntries>
-      {timeEntries.map((timeEntry, i, array) => {
+      {timeEntries.map((timeEntry, i) => {
         const currentDate = getDate(timeEntry.startTimestamp);
 
-        const isFirst = i === 0 || currentDate !== getDate(array[i - 1]?.startTimestamp);
+        const isFirst = i === 0 || currentDate !== getDate(timeEntries[i - 1]?.startTimestamp);
         const isLast =
-          i === array.length - 1 || currentDate !== getDate(array[i + 1]?.startTimestamp);
+          i === timeEntries.length - 1 ||
+          currentDate !== getDate(timeEntries[i + 1]?.startTimestamp);
 
         const isTop = isFirst && !isLast;
         const isBottom = !isFirst && isLast;
