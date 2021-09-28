@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
 import * as Styled from "./NewTimeEntry.styled";
 import { Button } from "../Button/Button";
 import { Icon } from "../Icon/Icon";
+import { FormContainer } from "../FormContainer/FormContainer";
 
 export function NewTimeEntry() {
-  const toggleEntryMenu = () => alert("ik start een nieuwe time entry");
+  const [isOpen, setIsOpen] = useState(false);
+  const handleIsOpen = () => setIsOpen(!isOpen);
 
   return (
-    <Styled.NewTimeEntry>
-      <Button type="Primary" onClick={toggleEntryMenu}>
-        <Icon />
-        New time entry
-      </Button>
-    </Styled.NewTimeEntry>
+    <>
+      <Styled.NewTimeEntry isOpen={isOpen}>
+        <Button styleBtn="Primary" onClick={handleIsOpen}>
+          <Icon />
+          New time entry
+        </Button>
+      </Styled.NewTimeEntry>
+      <FormContainer isOpen={isOpen} onClick={handleIsOpen} />
+    </>
   );
 }
+
+// dus default: isOpen = false, want FormContainer is dicht.

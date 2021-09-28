@@ -5,13 +5,13 @@ import * as Styled from "./Button.styled";
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  type: "Primary" | "Secondary";
+  styleBtn: "Primary" | "Secondary";
 }
 
-export function Button({ children, onClick, type }: ButtonProps) {
+export function Button({ children, onClick, styleBtn }: ButtonProps) {
   return (
     <>
-      {type === "Primary" ? (
+      {styleBtn === "Primary" ? (
         <Styled.Primary onClick={onClick}>{children}</Styled.Primary>
       ) : (
         <Styled.Secondary onClick={onClick}>{children}</Styled.Secondary>
