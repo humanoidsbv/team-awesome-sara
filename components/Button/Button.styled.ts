@@ -27,3 +27,5 @@ export const Secondary = styled(Primary)`
     fill: #000;
   }
 `;
+
+export const Tertiary = styled(Primary)``;

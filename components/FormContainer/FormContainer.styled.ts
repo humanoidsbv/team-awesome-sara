@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const FormContainer = styled.div<{ isOpen: boolean }>`
   background-color: #f5f8fa;
-  border-radius: 4px;
   border: solid 1px #e6eaee;
+  border-radius: 4px;
   display: ${(props) => (props.isOpen === false ? "none" : "flex")};
   flex-direction: column;
   padding: 16px;
@@ -64,8 +64,8 @@ export const Label = styled.label`
 
   input {
     background-image: linear-gradient(to top, #f2f4f7, #fff);
-    border-radius: 4px;
     border: solid 1px #ced0da;
+    border-radius: 4px;
     font-weight: bold;
     height: 36px;
     margin-top: 12px;
