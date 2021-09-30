@@ -6,11 +6,11 @@ import { Icon } from "../Icon/Icon";
 import { FormContainer } from "../FormContainer/FormContainer";
 
 interface NewTimeEntryProps {
-  addNewTimeEntry: Object;
+  handleNewTimeEntry: Object;
 }
 
-export function NewTimeEntry({ addNewTimeEntry }: NewTimeEntryProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export function NewTimeEntry({ handleNewTimeEntry }: NewTimeEntryProps) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleIsOpen = () => setIsOpen(!isOpen);
 
   return (
@@ -21,7 +21,11 @@ export function NewTimeEntry({ addNewTimeEntry }: NewTimeEntryProps) {
           New time entry
         </Button>
       </Styled.NewTimeEntry>
-      <FormContainer isOpen={isOpen} onClick={handleIsOpen} addNewTimeEntry={addNewTimeEntry} />
+      <FormContainer
+        isOpen={isOpen}
+        onClick={handleIsOpen}
+        handleNewTimeEntry={handleNewTimeEntry}
+      />
     </>
   );
 }

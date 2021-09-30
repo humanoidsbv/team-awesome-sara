@@ -24,6 +24,7 @@ export const FormContainer = styled.div<{ isOpen: boolean }>`
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-right: 245px;
   }
 `;
 
@@ -49,7 +50,7 @@ export const Form = styled.form`
 
     @media (min-width: 1024px) {
       margin: 0;
-      width: 15%;
+      width: 20%;
     }
   }
 `;
@@ -81,14 +82,20 @@ export const Label = styled.label`
   }
 `;
 
-export const EntryClose = styled.img`
+export const EntryClose = styled.button`
+  background: transparent;
+  border: none;
   color: #354052;
   cursor: pointer;
-  height: 10px;
   position: absolute;
   right: 16px;
 
   @media (min-width: 1024px) {
     display: none;
+  }
+
+  img {
+    height: 10px;
+    height: 10px;
   }
 `;

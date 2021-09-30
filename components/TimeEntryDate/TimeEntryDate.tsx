@@ -1,7 +1,7 @@
 import React from "react";
 
 import * as Styled from "./TimeEntryDate.styled";
-import { getDate } from "../../services/format/date";
+import { getDate } from "../../services/format/Date";
 
 interface TimeEntryDateProps {
   date: string;

@@ -9,14 +9,14 @@ import { mockTimeEntries } from "../fixtures/time-entries";
 
 function Homepage() {
   const [timeEntries, setIsTimeEntries] = useState(mockTimeEntries);
-  const addNewTimeEntry = (newTimeEntry) =>
+  const handleNewTimeEntry = (newTimeEntry) =>
     setIsTimeEntries([
       ...timeEntries,
       {
         id: Math.random(),
         client: newTimeEntry.client,
-        startTimestamp: new Date(`${newTimeEntry.date} ${newTimeEntry.from}`).toString(),
-        stopTimestamp: new Date(`${newTimeEntry.date} ${newTimeEntry.to}`).toString(),
+        startTimestamp: new Date(`${newTimeEntry.date} ${newTimeEntry.from}`).toISOString(),
+        stopTimestamp: new Date(`${newTimeEntry.date} ${newTimeEntry.to}`).toISOString(),
       },
     ]);
 
@@ -25,7 +25,7 @@ function Homepage() {
       <GlobalStyle />
       <Header />
       <Container>
-        <NewTimeEntry addNewTimeEntry={addNewTimeEntry} />
+        <NewTimeEntry handleNewTimeEntry={handleNewTimeEntry} />
         <TimeEntries timeEntries={timeEntries} />
       </Container>
     </>

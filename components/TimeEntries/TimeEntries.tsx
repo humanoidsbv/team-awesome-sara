@@ -1,14 +1,14 @@
 import React from "react";
 
 import * as Styled from "./TimeEntries.styled";
-import { getDate } from "../../services/format/date";
+import { getDate } from "../../services/format/Date";
 import { TimeEntryDate } from "../TimeEntryDate/TimeEntryDate";
 import { TimeEntry } from "../TimeEntry/TimeEntry";
 import { mockTimeEntriesProps } from "../../fixtures/time-entries";
 
 export function TimeEntries({ timeEntries }: mockTimeEntriesProps) {
   const sortedTimeEntries = [...timeEntries].sort((a, b) =>
-    getDate(a.startTimestamp) > getDate(b.startTimestamp) ? 1 : -1,
+    a.startTimestamp > b.startTimestamp ? 1 : -1,
   );
   return (
     <Styled.TimeEntries>
