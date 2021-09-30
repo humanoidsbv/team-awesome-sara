@@ -24,6 +24,7 @@ export const Navigation = styled.ul<{ isOpen: boolean }>`
     border-radius: 5px;
     cursor: pointer;
     width: fit-content;
+    padding: 4px 13px;
 
     @media (min-width: 1024px) {
       margin: 0;

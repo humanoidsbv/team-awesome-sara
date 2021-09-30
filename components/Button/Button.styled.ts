@@ -28,4 +28,4 @@ export const Secondary = styled(Primary)`
   }
 `;
 
-export const Tertiary = styled(Primary)``;
+export const SubmitButton = styled(Primary)``;

@@ -9,4 +9,15 @@ export const NewTimeEntry = styled.div<{ isOpen: boolean }>`
       display: none;
     }
   }
+
+  h1 {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: inline;
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 25px;
+    }
+  }
 `;

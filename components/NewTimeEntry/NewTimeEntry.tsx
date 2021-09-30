@@ -20,11 +20,12 @@ export function NewTimeEntry({ handleNewTimeEntry }: NewTimeEntryProps) {
           <Icon />
           New time entry
         </Button>
+        <h1>New Time Entry</h1>
       </Styled.NewTimeEntry>
       <FormContainer
+        handleNewTimeEntry={handleNewTimeEntry}
         isOpen={isOpen}
         onClick={handleIsOpen}
-        handleNewTimeEntry={handleNewTimeEntry}
       />
     </>
   );

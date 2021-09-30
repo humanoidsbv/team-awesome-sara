@@ -6,7 +6,11 @@ import { TimeEntryDate } from "../TimeEntryDate/TimeEntryDate";
 import { TimeEntry } from "../TimeEntry/TimeEntry";
 import { mockTimeEntriesProps } from "../../fixtures/time-entries";
 
-export function TimeEntries({ timeEntries }: mockTimeEntriesProps) {
+interface TimeEntriesProps {
+  timeEntries: mockTimeEntriesProps[];
+}
+
+export function TimeEntries({ timeEntries }: TimeEntriesProps) {
   const sortedTimeEntries = [...timeEntries].sort((a, b) =>
     a.startTimestamp > b.startTimestamp ? 1 : -1,
   );
@@ -32,10 +36,10 @@ export function TimeEntries({ timeEntries }: mockTimeEntriesProps) {
             )}
             <Styled.TimeEntryWrapper isTop={isTop} isBottom={isBottom} isCenter={isCenter}>
               <TimeEntry
-                isTop={isTop}
+                client={timeEntry.client}
                 isBottom={isBottom}
                 isCenter={isCenter}
-                client={timeEntry.client}
+                isTop={isTop}
                 startTime={timeEntry.startTimestamp}
                 stopTime={timeEntry.stopTimestamp}
               />

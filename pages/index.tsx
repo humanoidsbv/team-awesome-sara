@@ -6,11 +6,12 @@ import { Container } from "../components/Container";
 import { NewTimeEntry } from "../components/NewTimeEntry/NewTimeEntry";
 import { TimeEntries } from "../components/TimeEntries/TimeEntries";
 import { mockTimeEntries } from "../fixtures/time-entries";
+import { SearchBar } from "../components/SearchBar/SearchBar";
 
 function Homepage() {
-  const [timeEntries, setIsTimeEntries] = useState(mockTimeEntries);
+  const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
   const handleNewTimeEntry = (newTimeEntry) =>
-    setIsTimeEntries([
+    setTimeEntries([
       ...timeEntries,
       {
         id: Math.random(),
@@ -24,6 +25,7 @@ function Homepage() {
     <>
       <GlobalStyle />
       <Header />
+      <SearchBar timeEntries={timeEntries} />
       <Container>
         <NewTimeEntry handleNewTimeEntry={handleNewTimeEntry} />
         <TimeEntries timeEntries={timeEntries} />

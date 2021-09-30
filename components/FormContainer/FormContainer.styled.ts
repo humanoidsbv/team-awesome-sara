@@ -4,7 +4,7 @@ export const FormContainer = styled.div<{ isOpen: boolean }>`
   background-color: #f5f8fa;
   border: solid 1px #e6eaee;
   border-radius: 4px;
-  display: ${(props) => (props.isOpen === false ? "none" : "flex")};
+  display: ${(props) => (props.isOpen ? "flex" : "none")};
   flex-direction: column;
   padding: 16px;
   position: relative;
@@ -23,8 +23,8 @@ export const FormContainer = styled.div<{ isOpen: boolean }>`
     column-gap: 16px;
     display: flex;
     justify-content: space-between;
-    width: 100%;
     margin-right: 245px;
+    width: 100%;
   }
 `;
 
@@ -50,7 +50,6 @@ export const Form = styled.form`
 
     @media (min-width: 1024px) {
       margin: 0;
-      width: 20%;
     }
   }
 `;
@@ -63,26 +62,14 @@ export const Label = styled.label`
   text-transform: uppercase;
   width: 100%;
 
-  input {
-    background-image: linear-gradient(to top, #f2f4f7, #fff);
-    border: solid 1px #ced0da;
-    border-radius: 4px;
-    font-weight: bold;
-    height: 36px;
-    margin-top: 12px;
-    padding: 8px 16px;
-    text-align: left;
-    width: 100%;
-  }
-
-  input[type="date"]::-webkit-calendar-picker-indicator,
+  /* input[type="date"]::-webkit-calendar-picker-indicator, */
   input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
   }
 `;
 
-export const EntryClose = styled.button`
+export const CloseButton = styled.button`
   background: transparent;
   border: none;
   color: #354052;
@@ -98,4 +85,17 @@ export const EntryClose = styled.button`
     height: 10px;
     height: 10px;
   }
+`;
+
+export const Input = styled.input<{ invalid: boolean }>`
+  background-image: linear-gradient(to top, #f2f4f7, #fff);
+  border: solid 1px ${(props) => (props.invalid ? "#ced0da" : "#fb6375")};
+  border-radius: 4px;
+  font-weight: bold;
+  height: 36px;
+  margin-top: 12px;
+  padding: 8px 16px;
+  text-align: left;
+  width: 100%;
+  outline-color: ${(props) => (props.invalid ? "#ced0da" : "#fb6375")};
 `;
