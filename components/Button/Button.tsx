@@ -6,19 +6,17 @@ interface ButtonProps {
   children: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   primary?: boolean;
-  secondary?: boolean;
-  submitButton?: boolean;
+  submit?: boolean;
 }
 
-export function Button({ children, onClick, primary, secondary, submitButton }: ButtonProps) {
+export function Button({ children, onClick, primary, submit }: ButtonProps) {
   return (
     <>
       {primary && <Styled.Primary onClick={onClick}>{children}</Styled.Primary>}
-      {secondary && <Styled.Secondary onClick={onClick}>{children}</Styled.Secondary>}
-      {submitButton && (
-        <Styled.SubmitButton onClick={onClick} type="submit">
+      {submit && (
+        <Styled.Submit onClick={onClick} type="submit">
           {children}
-        </Styled.SubmitButton>
+        </Styled.Submit>
       )}
     </>
   );

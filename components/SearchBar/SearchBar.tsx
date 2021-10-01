@@ -9,8 +9,9 @@ interface SearchBarProps {
 export function SearchBar({ timeEntries }: SearchBarProps) {
   return (
     <Styled.SearchBar>
-      <Styled.Title>Timesheets</Styled.Title>|
-      <Styled.EntryCount>{timeEntries.length} Entries</Styled.EntryCount>
+      <Styled.Title>Timesheets</Styled.Title>
+      |
+      <Styled.EntryCount>{`${timeEntries.length} Entries`}</Styled.EntryCount>
     </Styled.SearchBar>
   );
 }

@@ -18,14 +18,4 @@ export const Primary = styled.button`
     fill: #b0edb8;
   }
 `;
-
-export const Secondary = styled(Primary)`
-  background-image: linear-gradient(to top, #f2f4f7, #fff);
-  border: solid 1px #ced0da;
-  color: #354052;
-  > div > svg {
-    fill: #000;
-  }
-`;
-
-export const SubmitButton = styled(Primary)``;
+export const Submit = styled(Primary)``;

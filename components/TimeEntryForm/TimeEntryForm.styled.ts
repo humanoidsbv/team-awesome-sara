@@ -1,6 +1,20 @@
 import styled from "styled-components";
 
-export const FormContainer = styled.div<{ isOpen: boolean }>`
+export const Title = styled.h1`
+  display: none;
+
+  @media (min-width: 1024px) {
+    color: #354052;
+    display: inline;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    text-align: left;
+    width: 100%;
+  }
+`;
+
+export const TimeEntryForm = styled.div<{ isOpen: boolean }>`
   background-color: #f5f8fa;
   border: solid 1px #e6eaee;
   border-radius: 4px;
@@ -28,7 +42,7 @@ export const FormContainer = styled.div<{ isOpen: boolean }>`
   }
 `;
 
-export const Form = styled.form`
+export const Form = styled.form<{ isFormValid: boolean }>`
   display: flex;
   flex-direction: column;
   row-gap: 16px;
@@ -42,10 +56,10 @@ export const Form = styled.form`
 
   button {
     align-items: center;
-    background-color: #35ac45;
+    background-color: ${(props) => (props.isFormValid ? "#35ac45" : "#e6eaee")};
     background-image: none;
     border: none;
-    color: white;
+    color: ${(props) => (props.isFormValid ? "#FFF" : "#68768c")};
     margin: 24px 0 16px 0;
 
     @media (min-width: 1024px) {
@@ -94,8 +108,8 @@ export const Input = styled.input<{ invalid: boolean }>`
   font-weight: bold;
   height: 36px;
   margin-top: 12px;
+  outline-color: ${(props) => (props.invalid ? "#ced0da" : "#fb6375")};
   padding: 8px 16px;
   text-align: left;
   width: 100%;
-  outline-color: ${(props) => (props.invalid ? "#ced0da" : "#fb6375")};
 `;

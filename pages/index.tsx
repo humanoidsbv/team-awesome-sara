@@ -3,13 +3,17 @@ import React, { useState } from "react";
 import { GlobalStyle } from "../styles/global";
 import { Header } from "../components/Header/Header";
 import { Container } from "../components/Container";
-import { NewTimeEntry } from "../components/NewTimeEntry/NewTimeEntry";
+import { NewTimeEntryButton } from "../components/NewTimeEntry/NewTimeEntryButton";
 import { TimeEntries } from "../components/TimeEntries/TimeEntries";
 import { mockTimeEntries } from "../fixtures/time-entries";
 import { SearchBar } from "../components/SearchBar/SearchBar";
+import { TimeEntryForm } from "../components/TimeEntryForm/TimeEntryForm";
 
 function Homepage() {
   const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
+  const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
+  const handleIsFormOpen = () => setIsFormOpen(!isFormOpen);
+
   const handleNewTimeEntry = (newTimeEntry) =>
     setTimeEntries([
       ...timeEntries,
@@ -27,7 +31,12 @@ function Homepage() {
       <Header />
       <SearchBar timeEntries={timeEntries} />
       <Container>
-        <NewTimeEntry handleNewTimeEntry={handleNewTimeEntry} />
+        <NewTimeEntryButton handleIsFormOpen={handleIsFormOpen} isFormOpen={isFormOpen} />
+        <TimeEntryForm
+          handleNewTimeEntry={handleNewTimeEntry}
+          isFormOpen={isFormOpen}
+          onClose={handleIsFormOpen}
+        />
         <TimeEntries timeEntries={timeEntries} />
       </Container>
     </>
