@@ -7,14 +7,16 @@ interface ButtonPropsInterface {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   primary?: boolean;
   submit?: boolean;
+  disabled?: boolean;
+  [props: string]: any;
 }
 
-export function Button({ children, onClick, primary, submit }: ButtonPropsInterface) {
+export function Button({ children, onClick, primary, submit, ...props }: ButtonPropsInterface) {
   return (
     <>
       {primary && <Styled.Primary onClick={onClick}>{children}</Styled.Primary>}
       {submit && (
-        <Styled.Primary onClick={onClick} type="submit">
+        <Styled.Primary onClick={onClick} type="submit" {...props}>
           {children}
         </Styled.Primary>
       )}

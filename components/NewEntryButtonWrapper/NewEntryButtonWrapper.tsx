@@ -7,7 +7,6 @@ import { Icon } from "../Icon/Icon";
 interface NewEntryButtonWrapperPropsInterface {
   isFormOpen: boolean;
   handleIsFormOpen: () => void;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export function NewEntryButtonWrapper({
