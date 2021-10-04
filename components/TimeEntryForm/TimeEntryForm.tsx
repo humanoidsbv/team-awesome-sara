@@ -32,6 +32,7 @@ export function TimeEntryForm({
 
   const handleSubmit = (event) => {
     const updatedTimeEntry = {
+      id: Math.random(),
       client: newTimeEntry.client,
       startTimestamp: new Date(`${newTimeEntry.date} ${newTimeEntry.from}`).toISOString(),
       stopTimestamp: new Date(`${newTimeEntry.date} ${newTimeEntry.to}`).toISOString(),
@@ -115,7 +116,7 @@ export function TimeEntryForm({
               />
             </Styled.Label>
           </div>
-          <Button submit disabled={!isFormValid}>
+          <Button secondary isDisabled={!isFormValid}>
             Add
           </Button>
         </Styled.Form>

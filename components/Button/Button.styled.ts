@@ -18,3 +18,16 @@ export const Primary = styled.button`
     fill: #b0edb8;
   }
 `;
+
+export const Disabled = styled(Primary)`
+  align-items: center;
+  background-image: none;
+  background-color: #39b54a;
+  border: none;
+
+  :disabled {
+    background-color: #e6eaee;
+    color: #68768c;
+    border: 1px solid #999999;
+  }
+`;

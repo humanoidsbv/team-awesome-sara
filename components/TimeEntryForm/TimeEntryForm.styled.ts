@@ -55,13 +55,7 @@ export const Form = styled.form<{ isFormValid: boolean }>`
   }
 
   button {
-    align-items: center;
-    background-color: ${(props) => (props.isFormValid ? "#35ac45" : "#e6eaee")};
-    background-image: none;
-    border: none;
-    color: ${(props) => (props.isFormValid ? "#FFF" : "#68768c")};
     margin: 24px 0 16px 0;
-
     @media (min-width: 1024px) {
       margin: 0;
     }

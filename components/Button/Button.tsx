@@ -11,14 +11,21 @@ interface ButtonPropsInterface {
   [props: string]: any;
 }
 
-export function Button({ children, onClick, primary, submit, ...props }: ButtonPropsInterface) {
+export function Button({
+  children,
+  isDisabled,
+  onClick,
+  primary,
+  secondary,
+  ...props
+}: ButtonPropsInterface) {
   return (
     <>
       {primary && <Styled.Primary onClick={onClick}>{children}</Styled.Primary>}
-      {submit && (
-        <Styled.Primary onClick={onClick} type="submit" {...props}>
+      {secondary && (
+        <Styled.Disabled onClick={onClick} type="submit" disabled={isDisabled} {...props}>
           {children}
-        </Styled.Primary>
+        </Styled.Disabled>
       )}
     </>
   );
