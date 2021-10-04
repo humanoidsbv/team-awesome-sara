@@ -18,4 +18,3 @@ export const Primary = styled.button`
     fill: #b0edb8;
   }
 `;
-export const Submit = styled(Primary)``;

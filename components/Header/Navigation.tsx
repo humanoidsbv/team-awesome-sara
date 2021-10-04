@@ -2,11 +2,11 @@ import React from "react";
 
 import * as Styled from "./Navigation.styled";
 
-interface NavigationProps {
+interface NavigationPropsInterface {
   isOpen: boolean;
 }
 
-export function Navigation({ isOpen }: NavigationProps) {
+export function Navigation({ isOpen }: NavigationPropsInterface) {
   return (
     <Styled.Navigation isOpen={isOpen}>
       <li>Timesheets</li>

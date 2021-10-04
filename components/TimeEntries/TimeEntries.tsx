@@ -1,13 +1,13 @@
 import React from "react";
 
 import * as Styled from "./TimeEntries.styled";
-import { getDate } from "../../services/format/Date";
+import { getDate } from "../../services/format/date";
 import { TimeEntryDate } from "../TimeEntryDate/TimeEntryDate";
 import { TimeEntry } from "../TimeEntry/TimeEntry";
-import { mockTimeEntriesProps } from "../../fixtures/time-entries";
+import { TimeEntryInterface } from "../../fixtures/time-entries";
 
 interface TimeEntriesProps {
-  timeEntries: mockTimeEntriesProps[];
+  timeEntries: TimeEntryInterface[];
 }
 
 export function TimeEntries({ timeEntries }: TimeEntriesProps) {

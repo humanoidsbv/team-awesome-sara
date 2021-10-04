@@ -1,12 +1,12 @@
 import React from "react";
 
 import * as Styled from "./TimeEntryDate.styled";
-import { getDate } from "../../services/format/Date";
+import { getDate } from "../../services/format/date";
 
-interface TimeEntryDateProps {
+interface TimeEntryDatePropsInterface {
   date: string;
 }
 
-export function TimeEntryDate({ date }: TimeEntryDateProps) {
+export function TimeEntryDate({ date }: TimeEntryDatePropsInterface) {
   return <Styled.TimeEntryDate>{getDate(date)}</Styled.TimeEntryDate>;
 }

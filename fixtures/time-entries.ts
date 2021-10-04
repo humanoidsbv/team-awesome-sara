@@ -1,11 +1,11 @@
-export interface mockTimeEntriesProps {
-  id: number;
+export interface TimeEntryInterface {
+  id?: number;
   client: string;
   startTimestamp: string;
   stopTimestamp: string;
 }
 
-export const mockTimeEntries = [
+export const mockTimeEntries: TimeEntryInterface[] = [
   {
     id: 0.1,
     client: "Heineken",

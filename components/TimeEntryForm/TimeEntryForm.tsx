@@ -1,16 +1,25 @@
-import React, { useState, useRef, HtmlHTMLAttributes } from "react";
+import React, { useState, useRef } from "react";
 
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../Button/Button";
+import { TimeEntryInterface } from "../../fixtures/time-entries";
 
-interface TimeEntryFormProps {
-  handleNewTimeEntry: any;
+interface TimeEntryFormPropsInterface {
+  handleNewTimeEntry(newTimeEntry: TimeEntryInterface): void;
   isFormOpen: boolean;
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export function TimeEntryForm({ handleNewTimeEntry, isFormOpen, onClose }: TimeEntryFormProps) {
-  const [newTimeEntry, setNewTimeEntry] = useState<Object>({});
+interface NewTimeEntryInterface {
+  [name: string]: string;
+}
+
+export function TimeEntryForm({
+  handleNewTimeEntry,
+  isFormOpen,
+  onClose,
+}: TimeEntryFormPropsInterface) {
+  const [newTimeEntry, setNewTimeEntry] = useState<NewTimeEntryInterface>({});
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [isInputValid, setIsInputValid] = useState<any>({});
   const formRef = useRef<HTMLFormElement>(null);
@@ -22,8 +31,15 @@ export function TimeEntryForm({ handleNewTimeEntry, isFormOpen, onClose }: TimeE
   };
 
   const handleSubmit = (event) => {
+    const updatedTimeEntry = {
+      client: newTimeEntry.client,
+      startTimestamp: new Date(`${newTimeEntry.date} ${newTimeEntry.from}`).toISOString(),
+      stopTimestamp: new Date(`${newTimeEntry.date} ${newTimeEntry.to}`).toISOString(),
+    };
+
     event.preventDefault();
-    handleNewTimeEntry(newTimeEntry);
+    handleNewTimeEntry(updatedTimeEntry);
+    setNewTimeEntry({});
     event.target.reset();
   };
 
@@ -34,7 +50,7 @@ export function TimeEntryForm({ handleNewTimeEntry, isFormOpen, onClose }: TimeE
   return (
     <>
       <Styled.Title>New Time Entry</Styled.Title>
-      <Styled.TimeEntryForm isOpen={isFormOpen}>
+      <Styled.TimeEntryFormWrapper isOpen={isFormOpen}>
         <Styled.CloseButton onClick={onClose}>
           <img src="./images/close.svg" alt="Close new entry menu" />
         </Styled.CloseButton>
@@ -103,7 +119,7 @@ export function TimeEntryForm({ handleNewTimeEntry, isFormOpen, onClose }: TimeE
             Add
           </Button>
         </Styled.Form>
-      </Styled.TimeEntryForm>
+      </Styled.TimeEntryFormWrapper>
     </>
   );
 }

@@ -14,7 +14,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const TimeEntryForm = styled.div<{ isOpen: boolean }>`
+export const TimeEntryFormWrapper = styled.div<{ isOpen: boolean }>`
   background-color: #f5f8fa;
   border: solid 1px #e6eaee;
   border-radius: 4px;
@@ -75,12 +75,6 @@ export const Label = styled.label`
   text-align: left;
   text-transform: uppercase;
   width: 100%;
-
-  /* input[type="date"]::-webkit-calendar-picker-indicator, */
-  input[type="time"]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
-  }
 `;
 
 export const CloseButton = styled.button`
@@ -95,7 +89,7 @@ export const CloseButton = styled.button`
     display: none;
   }
 
-  img {
+  > img {
     height: 10px;
     height: 10px;
   }
