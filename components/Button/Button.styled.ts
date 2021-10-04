@@ -19,11 +19,15 @@ export const Primary = styled.button`
   }
 `;
 
-export const Secondary = styled(Primary)`
-  background-image: linear-gradient(to top, #f2f4f7, #fff);
-  border: solid 1px #ced0da;
-  color: #354052;
-  > div > svg {
-    fill: #000;
+export const Disabled = styled(Primary)`
+  align-items: center;
+  background-image: none;
+  background-color: #39b54a;
+  border: none;
+
+  :disabled {
+    background-color: #e6eaee;
+    color: #68768c;
+    border: 1px solid #999999;
   }
 `;

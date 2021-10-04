@@ -6,7 +6,7 @@ import { Navigation } from "./Navigation";
 import { Profile } from "./Profile";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const toggleIsOpen = () => setIsOpen(!isOpen);
 
   return (

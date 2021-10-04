@@ -2,19 +2,30 @@ import React from "react";
 
 import * as Styled from "./Button.styled";
 
-interface ButtonProps {
+interface ButtonPropsInterface {
   children: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  type: "Primary" | "Secondary";
+  primary?: boolean;
+  submit?: boolean;
+  disabled?: boolean;
+  [props: string]: any;
 }
 
-export function Button({ children, onClick, type }: ButtonProps) {
+export function Button({
+  children,
+  isDisabled,
+  onClick,
+  primary,
+  secondary,
+  ...props
+}: ButtonPropsInterface) {
   return (
     <>
-      {type === "Primary" ? (
-        <Styled.Primary onClick={onClick}>{children}</Styled.Primary>
-      ) : (
-        <Styled.Secondary onClick={onClick}>{children}</Styled.Secondary>
+      {primary && <Styled.Primary onClick={onClick}>{children}</Styled.Primary>}
+      {secondary && (
+        <Styled.Disabled onClick={onClick} type="submit" disabled={isDisabled} {...props}>
+          {children}
+        </Styled.Disabled>
       )}
     </>
   );

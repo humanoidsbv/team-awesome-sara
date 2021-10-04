@@ -8,6 +8,6 @@ export const Container = styled.div`
   margin: 24px;
 
   @media (min-width: 1024px) {
-    margin: 24px 200px;
+    margin: 32px 200px;
   }
 `;

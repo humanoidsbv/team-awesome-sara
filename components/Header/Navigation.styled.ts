@@ -23,6 +23,7 @@ export const Navigation = styled.ul<{ isOpen: boolean }>`
   > li {
     border-radius: 5px;
     cursor: pointer;
+    padding: 4px 13px;
     width: fit-content;
 
     @media (min-width: 1024px) {

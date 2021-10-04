@@ -1,24 +1,29 @@
 import React from "react";
 
 import * as Styled from "./TimeEntries.styled";
-import { mockTimeEntries } from "../../fixtures/time-entries";
 import { getDate } from "../../services/format/date";
 import { TimeEntryDate } from "../TimeEntryDate/TimeEntryDate";
 import { TimeEntry } from "../TimeEntry/TimeEntry";
+import { TimeEntryInterface } from "../../fixtures/time-entries";
 
-export function TimeEntries() {
-  const timeEntries = [...mockTimeEntries].sort((a, b) =>
-    getDate(a.startTimestamp) > getDate(b.startTimestamp) ? 1 : -1,
+interface TimeEntriesProps {
+  timeEntries: TimeEntryInterface[];
+}
+
+export function TimeEntries({ timeEntries }: TimeEntriesProps) {
+  const sortedTimeEntries = [...timeEntries].sort((a, b) =>
+    a.startTimestamp > b.startTimestamp ? 1 : -1,
   );
   return (
     <Styled.TimeEntries>
-      {timeEntries.map((timeEntry, i) => {
+      {sortedTimeEntries.map((timeEntry, i) => {
         const currentDate = getDate(timeEntry.startTimestamp);
 
-        const isFirst = i === 0 || currentDate !== getDate(timeEntries[i - 1]?.startTimestamp);
+        const isFirst =
+          i === 0 || currentDate !== getDate(sortedTimeEntries[i - 1]?.startTimestamp);
         const isLast =
-          i === timeEntries.length - 1 ||
-          currentDate !== getDate(timeEntries[i + 1]?.startTimestamp);
+          i === sortedTimeEntries.length - 1 ||
+          currentDate !== getDate(sortedTimeEntries[i + 1]?.startTimestamp);
 
         const isTop = isFirst && !isLast;
         const isBottom = !isFirst && isLast;
@@ -26,15 +31,15 @@ export function TimeEntries() {
 
         return (
           <React.Fragment key={timeEntry.id}>
-            {(i === 0 || currentDate !== getDate(timeEntries[i - 1].startTimestamp)) && (
+            {(i === 0 || currentDate !== getDate(sortedTimeEntries[i - 1].startTimestamp)) && (
               <TimeEntryDate date={timeEntry.startTimestamp} />
             )}
             <Styled.TimeEntryWrapper isTop={isTop} isBottom={isBottom} isCenter={isCenter}>
               <TimeEntry
-                isTop={isTop}
+                client={timeEntry.client}
                 isBottom={isBottom}
                 isCenter={isCenter}
-                client={timeEntry.client}
+                isTop={isTop}
                 startTime={timeEntry.startTimestamp}
                 stopTime={timeEntry.stopTimestamp}
               />

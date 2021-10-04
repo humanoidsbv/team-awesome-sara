@@ -3,7 +3,7 @@ import React from "react";
 import * as Styled from "./TimeEntry.styled";
 import { getTime } from "../../services/format/time";
 
-interface TimeEntryProps {
+interface TimeEntryPropsInterface {
   client: string;
   isTop: boolean;
   isBottom: boolean;
@@ -19,7 +19,7 @@ export function TimeEntry({
   isCenter,
   startTime,
   stopTime,
-}: TimeEntryProps) {
+}: TimeEntryPropsInterface) {
   return (
     <Styled.TimeEntry isBottom={isBottom} isCenter={isCenter} isTop={isTop}>
       <p>{client}</p>
