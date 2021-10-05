@@ -1,4 +1,4 @@
-export function getTime(string) {
+export function getTime(string: string) {
   const date = new Date(string);
   const formattedTime = date.toLocaleTimeString("nl-NL", {
     hour: "2-digit",

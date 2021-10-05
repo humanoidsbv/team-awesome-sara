@@ -3,9 +3,9 @@ import React from "react";
 import * as Styled from "./Button.styled";
 
 interface ButtonPropsInterface {
-  [props: string]: unknown | any;
+  [props: string]: unknown;
   children: React.ReactNode;
-  disabled?: boolean;
+  isDisabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   primary?: boolean;
   submit?: boolean;

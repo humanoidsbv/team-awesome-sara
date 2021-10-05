@@ -11,19 +11,16 @@ interface TimeEntriesProps {
 }
 
 export function TimeEntries({ timeEntries }: TimeEntriesProps) {
-  const sortedTimeEntries = [...timeEntries].sort((a, b) =>
-    a.startTimestamp > b.startTimestamp ? 1 : -1,
-  );
+  const sortedTimeEntries = [...timeEntries].sort((a, b) => (a.startTime > b.startTime ? 1 : -1));
   return (
     <Styled.TimeEntries>
       {sortedTimeEntries.map((timeEntry, i) => {
-        const currentDate = getDate(timeEntry.startTimestamp);
+        const currentDate = getDate(timeEntry.startTime);
 
-        const isFirst =
-          i === 0 || currentDate !== getDate(sortedTimeEntries[i - 1]?.startTimestamp);
+        const isFirst = i === 0 || currentDate !== getDate(sortedTimeEntries[i - 1]?.startTime);
         const isLast =
           i === sortedTimeEntries.length - 1 ||
-          currentDate !== getDate(sortedTimeEntries[i + 1]?.startTimestamp);
+          currentDate !== getDate(sortedTimeEntries[i + 1]?.startTime);
 
         const isTop = isFirst && !isLast;
         const isBottom = !isFirst && isLast;
@@ -31,8 +28,8 @@ export function TimeEntries({ timeEntries }: TimeEntriesProps) {
 
         return (
           <React.Fragment key={timeEntry.id}>
-            {(i === 0 || currentDate !== getDate(sortedTimeEntries[i - 1].startTimestamp)) && (
-              <TimeEntryDate date={timeEntry.startTimestamp} />
+            {(i === 0 || currentDate !== getDate(sortedTimeEntries[i - 1].startTime)) && (
+              <TimeEntryDate date={timeEntry.startTime} />
             )}
             <Styled.TimeEntryWrapper isTop={isTop} isBottom={isBottom} isCenter={isCenter}>
               <TimeEntry
@@ -40,8 +37,8 @@ export function TimeEntries({ timeEntries }: TimeEntriesProps) {
                 isBottom={isBottom}
                 isCenter={isCenter}
                 isTop={isTop}
-                startTime={timeEntry.startTimestamp}
-                stopTime={timeEntry.stopTimestamp}
+                startTime={timeEntry.startTime}
+                stopTime={timeEntry.endTime}
               />
             </Styled.TimeEntryWrapper>
           </React.Fragment>
