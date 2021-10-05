@@ -1,4 +1,4 @@
-export function getDate(string) {
+export function getDate(string: string) {
   const date = new Date(string);
   const formattedDate = date.toLocaleDateString("nl-NL", {
     day: "numeric",

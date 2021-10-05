@@ -2,6 +2,10 @@ import React from "react";
 
 import * as Styled from "./Container.styled";
 
-export function Container({ children }) {
+interface ContainerInterface {
+  children: React.ReactNode | React.ReactNode[];
+}
+
+export function Container({ children }: ContainerInterface) {
   return <Styled.Container>{children}</Styled.Container>;
 }

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 
 import * as Styled from "./TimeEntryForm.styled";
-import { Button } from "../Button/Button";
+import { Button } from "../button/Button";
 import { TimeEntryInterface } from "../../fixtures/time-entries";
 
 interface TimeEntryFormPropsInterface {
@@ -14,6 +14,10 @@ interface NewTimeEntryInterface {
   [name: string]: string;
 }
 
+interface ValidityInterface {
+  [name: string]: boolean;
+}
+
 export function TimeEntryForm({
   handleNewTimeEntry,
   isFormOpen,
@@ -21,21 +25,21 @@ export function TimeEntryForm({
 }: TimeEntryFormPropsInterface) {
   const [newTimeEntry, setNewTimeEntry] = useState<NewTimeEntryInterface>({});
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
-  const [isInputValid, setIsInputValid] = useState<any>({});
+  const [isInputValid, setIsInputValid] = useState<ValidityInterface>({});
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleChange = ({ target }) => {
+  const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = target;
     setNewTimeEntry({ ...newTimeEntry, [name]: value });
     setIsFormValid(formRef.current?.checkValidity());
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.BaseSyntheticEvent) => {
     const updatedTimeEntry = {
       id: Math.random(),
       client: newTimeEntry.client,
-      startTimestamp: new Date(`${newTimeEntry.date} ${newTimeEntry.from}`).toISOString(),
-      stopTimestamp: new Date(`${newTimeEntry.date} ${newTimeEntry.to}`).toISOString(),
+      startTime: new Date(`${newTimeEntry.date} ${newTimeEntry.from}`).toISOString(),
+      endTime: new Date(`${newTimeEntry.date} ${newTimeEntry.to}`).toISOString(),
     };
 
     event.preventDefault();
@@ -44,7 +48,7 @@ export function TimeEntryForm({
     event.target.reset();
   };
 
-  const handleBlur = (event) => {
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     setIsInputValid({ ...isInputValid, [event.target.name]: event.target.checkValidity() });
   };
 
@@ -64,6 +68,7 @@ export function TimeEntryForm({
               name="client"
               onBlur={handleBlur}
               onChange={handleChange}
+              placeholder="Port of Rotterdam"
               required
               type="text"
             />
@@ -76,6 +81,7 @@ export function TimeEntryForm({
               name="activity"
               onBlur={handleBlur}
               onChange={handleChange}
+              placeholder="Design"
               required
               type="text"
             />
