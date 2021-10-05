@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const Header = styled.nav`
   align-items: center;
-  background-color: #4f88ef;
+  background-color: ${({ theme }) => theme.backgroundAccent};
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     flex-direction: row;
     height: 50px;
     justify-content: space-between;
@@ -22,7 +22,7 @@ export const Header = styled.nav`
     padding: 12px;
     width: 100%;
 
-    @media (min-width: 1024px) {
+    @media (${({ theme }) => theme.desktop}) {
       display: none;
     }
   }

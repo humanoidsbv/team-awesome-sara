@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { ThemeProvider } from "styled-components";
 
 import { GlobalStyle } from "../styles/global";
+import { theme } from "../styles/theme";
 import { Header } from "../components/Header/Header";
 import { Container } from "../components/Container";
 import { NewEntryButtonWrapper } from "../components/NewEntryButtonWrapper/NewEntryButtonWrapper";
@@ -20,17 +22,19 @@ function Homepage() {
   return (
     <>
       <GlobalStyle />
-      <Header />
-      <SearchBar timeEntries={timeEntries} />
-      <Container>
-        <NewEntryButtonWrapper handleIsFormOpen={handleIsFormOpen} isFormOpen={isFormOpen} />
-        <TimeEntryForm
-          handleNewTimeEntry={handleNewTimeEntry}
-          isFormOpen={isFormOpen}
-          onClose={handleIsFormOpen}
-        />
-        <TimeEntries timeEntries={timeEntries} />
-      </Container>
+      <ThemeProvider theme={theme}>
+        <Header />
+        <SearchBar timeEntries={timeEntries} />
+        <Container>
+          <NewEntryButtonWrapper handleIsFormOpen={handleIsFormOpen} isFormOpen={isFormOpen} />
+          <TimeEntryForm
+            handleNewTimeEntry={handleNewTimeEntry}
+            isFormOpen={isFormOpen}
+            onClose={handleIsFormOpen}
+          />
+          <TimeEntries timeEntries={timeEntries} />
+        </Container>
+      </ThemeProvider>
     </>
   );
 }

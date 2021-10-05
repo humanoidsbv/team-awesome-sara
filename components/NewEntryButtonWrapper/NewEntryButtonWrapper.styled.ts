@@ -5,7 +5,7 @@ export const NewEntryButtonWrapper = styled.div<{ isFormOpen: boolean }>`
   width: 100%;
 
   > button {
-    @media (min-width: 1024px) {
+    @media (${({ theme }) => theme.desktop}) {
       display: none;
     }
   }

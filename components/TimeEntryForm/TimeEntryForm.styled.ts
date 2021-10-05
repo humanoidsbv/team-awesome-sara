@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Title = styled.h1`
   display: none;
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     color: #354052;
     display: inline;
     font-size: 24px;
@@ -16,7 +16,7 @@ export const Title = styled.h1`
 
 export const TimeEntryFormWrapper = styled.div<{ isOpen: boolean }>`
   background-color: #f5f8fa;
-  border: solid 1px #e6eaee;
+  border: solid 1px ${({ theme }) => theme.borderColorPrimary};
   border-radius: 4px;
   display: ${(props) => (props.isOpen ? "flex" : "none")};
   flex-direction: column;
@@ -25,7 +25,7 @@ export const TimeEntryFormWrapper = styled.div<{ isOpen: boolean }>`
   row-gap: 16px;
   width: 100%;
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     align-items: flex-end;
     column-gap: 14px;
     display: flex;
@@ -48,7 +48,7 @@ export const Form = styled.form<{ isFormValid: boolean }>`
   row-gap: 16px;
   width: 100%;
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     align-items: flex-end;
     column-gap: 14px;
     flex-direction: row;
@@ -56,7 +56,8 @@ export const Form = styled.form<{ isFormValid: boolean }>`
 
   button {
     margin: 24px 0 16px 0;
-    @media (min-width: 1024px) {
+
+    @media (${({ theme }) => theme.desktop}) {
       margin: 0;
     }
   }
@@ -79,7 +80,7 @@ export const CloseButton = styled.button`
   position: absolute;
   right: 16px;
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     display: none;
   }
 

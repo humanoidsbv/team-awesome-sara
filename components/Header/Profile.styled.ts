@@ -3,12 +3,13 @@ import styled from "styled-components";
 export const Profile = styled.button`
   display: none;
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     background: url("/images/humanoids-logo.png") no-repeat center #fff;
     background-position: 20px;
     background-size: 65px;
-    border-radius: 50px;
     border: none;
+    border-radius: 50px;
+
     cursor: pointer;
     display: flex;
     height: 35px;
@@ -18,7 +19,7 @@ export const Profile = styled.button`
   }
 
   > img {
-    @media (min-width: 1024px) {
+    @media (${({ theme }) => theme.desktop}) {
       background-color: sandybrown;
       border-radius: 50%;
       height: 32px;

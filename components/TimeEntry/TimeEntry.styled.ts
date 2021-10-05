@@ -8,7 +8,7 @@ interface TimeEntryProps {
 
 export const TimeEntry = styled.div<TimeEntryProps>`
   align-items: center;
-  border: solid 1px #e6eaee;
+  border: solid 1px ${({ theme }) => theme.borderColorPrimary};
   border-bottom-right-radius: 4px;
   border-left: none;
   border-top-right-radius: 4px;
@@ -46,7 +46,7 @@ export const TimeEntry = styled.div<TimeEntryProps>`
     border-top-right-radius: 4px;
   `}
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     padding: 32px;
   }
 `;

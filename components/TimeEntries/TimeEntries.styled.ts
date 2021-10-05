@@ -12,14 +12,14 @@ export const TimeEntries = styled.div`
   flex-direction: column;
   width: 100%;
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     font-size: 24px;
     margin: 23px 0 0 0;
   }
 `;
 
 export const TimeEntryWrapper = styled.div<TimeEntryWrapperProps>`
-  border-left: solid 4px #4f88ef;
+  border-left: solid 4px ${({ theme }) => theme.backgroundAccent};
   border-radius: 4px;
   width: 100%;
 
