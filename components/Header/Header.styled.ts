@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Header = styled.nav`
   align-items: center;
-  background-color: ${({ theme }) => theme.backgroundAccent};
+  background-color: ${({ theme }) => theme.primaryColor};
   display: flex;
   flex-direction: column;
   justify-content: center;

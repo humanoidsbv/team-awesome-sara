@@ -16,7 +16,7 @@ export const SearchBar = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${({ theme }) => theme.colorPrimary};
+  color: ${({ theme }) => theme.onBackground};
   font-size: 18px;
   font-weight: 600;
 `;

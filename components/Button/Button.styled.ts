@@ -28,6 +28,6 @@ export const Disabled = styled(Primary)`
   :disabled {
     background-color: #e6eaee;
     border: 1px solid #999999;
-    color: ${({ theme }) => theme.colorSecondary};
+    color: #68768c;
   }
 `;

@@ -19,7 +19,7 @@ export const TimeEntries = styled.div`
 `;
 
 export const TimeEntryWrapper = styled.div<TimeEntryWrapperProps>`
-  border-left: solid 4px ${({ theme }) => theme.backgroundAccent};
+  border-left: solid 4px ${({ theme }) => theme.primaryColor};
   border-radius: 4px;
   width: 100%;
 

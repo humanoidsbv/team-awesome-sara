@@ -1,8 +1,8 @@
 export const theme = {
-  backgroundAccent: "#4f88ef",
+  backgroundColor: "#FFFFFF",
   borderColorPrimary: "#e6eaee",
-  colorPrimary: "#354052",
-  colorSecondary: "#68768c",
+  onBackground: "#354052",
+  primaryColor: "#4f88ef",
 
   // Breakpoints
   desktop: "min-width: 1024px",
