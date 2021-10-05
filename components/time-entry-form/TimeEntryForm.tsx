@@ -1,7 +1,7 @@
-import React, { useState, useRef, ChangeEvent } from "react";
+import React, { useState, useRef } from "react";
 
 import * as Styled from "./TimeEntryForm.styled";
-import { Button } from "../Button/Button";
+import { Button } from "../button/Button";
 import { TimeEntryInterface } from "../../fixtures/time-entries";
 
 interface TimeEntryFormPropsInterface {

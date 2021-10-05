@@ -2,8 +2,8 @@ import React from "react";
 
 import * as Styled from "./TimeEntries.styled";
 import { getDate } from "../../services/format/date";
-import { TimeEntryDate } from "../TimeEntryDate/TimeEntryDate";
-import { TimeEntry } from "../TimeEntry/TimeEntry";
+import { TimeEntryDate } from "../time-entry-date/TimeEntryDate";
+import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryInterface } from "../../fixtures/time-entries";
 
 interface TimeEntriesProps {

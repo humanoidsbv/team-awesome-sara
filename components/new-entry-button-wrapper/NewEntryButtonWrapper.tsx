@@ -1,8 +1,8 @@
 import React from "react";
 
 import * as Styled from "./NewEntryButtonWrapper.styled";
-import { Button } from "../Button/Button";
-import { Icon } from "../Icon/Icon";
+import { Button } from "../button/Button";
+import { Icon } from "../icon/Icon";
 
 interface NewEntryButtonWrapperPropsInterface {
   isFormOpen: boolean;
