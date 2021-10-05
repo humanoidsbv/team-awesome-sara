@@ -6,7 +6,7 @@ export const TimeEntryDate = styled.h1`
   font-size: 16px;
   margin: 32px 0 16px 0;
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     font-size: 24px;
     font-weight: 400;
     margin: 32px 0 24px;

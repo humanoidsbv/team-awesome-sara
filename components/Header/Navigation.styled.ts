@@ -12,7 +12,7 @@ export const Navigation = styled.ul<{ isOpen: boolean }>`
   margin-top: 60px;
   row-gap: 44px;
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     column-gap: 50px;
     display: flex;
     flex-direction: row;
@@ -26,7 +26,7 @@ export const Navigation = styled.ul<{ isOpen: boolean }>`
     padding: 4px 13px;
     width: fit-content;
 
-    @media (min-width: 1024px) {
+    @media (${({ theme }) => theme.desktop}) {
       margin: 0;
       padding: 8px;
     }

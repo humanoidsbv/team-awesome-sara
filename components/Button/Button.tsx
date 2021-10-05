@@ -3,12 +3,12 @@ import React from "react";
 import * as Styled from "./Button.styled";
 
 interface ButtonPropsInterface {
+  [props: string]: unknown | any;
   children: React.ReactNode;
+  disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   primary?: boolean;
   submit?: boolean;
-  disabled?: boolean;
-  [props: string]: any;
 }
 
 export function Button({
@@ -23,7 +23,7 @@ export function Button({
     <>
       {primary && <Styled.Primary onClick={onClick}>{children}</Styled.Primary>}
       {secondary && (
-        <Styled.Disabled onClick={onClick} type="submit" disabled={isDisabled} {...props}>
+        <Styled.Disabled disabled={isDisabled} onClick={onClick} type="submit" {...props}>
           {children}
         </Styled.Disabled>
       )}

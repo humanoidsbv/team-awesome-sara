@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const SearchBar = styled.div`
   display: none;
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     align-items: center;
-    border-bottom: 1px solid #e6eaee;
-    color: #e6eaee;
+    border-bottom: 1px solid ${({ theme }) => theme.borderColorPrimary};
+    color: ${({ theme }) => theme.borderColorPrimary};
     column-gap: 12px;
     display: flex;
     height: 70px;
@@ -16,7 +16,7 @@ export const SearchBar = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: #354052;
+  color: ${({ theme }) => theme.onBackground};
   font-size: 18px;
   font-weight: 600;
 `;

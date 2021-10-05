@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   margin: 24px;
 
-  @media (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     margin: 32px 200px;
   }
 `;
