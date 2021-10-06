@@ -24,3 +24,16 @@ export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
     .then((response) => response.json())
     .catch((error) => error);
 }
+
+export function saveTimeEntry(data: Object) {
+  return fetch("http://localhost:3004/time-entries", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .catch((error) => error);
+}

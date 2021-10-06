@@ -20,6 +20,27 @@
       "id": 3,
       "startTime": "2020-03-12T09:30:00.000Z",
       "activity": "Development"
+    },
+    {
+      "client": "Humanoids",
+      "startTime": "2021-10-06T12:54:00.000Z",
+      "endTime": "2021-10-06T12:58:00.000Z",
+      "activity": "Design",
+      "id": 4
+    },
+    {
+      "client": "Port of Rotterdam",
+      "startTime": "2021-10-07T13:00:00.000Z",
+      "endTime": "2021-10-07T18:00:00.000Z",
+      "activity": "Design",
+      "id": 5
+    },
+    {
+      "client": "Humanoids Two",
+      "startTime": "1990-09-12T17:00:00.000Z",
+      "endTime": "1990-09-12T18:00:00.000Z",
+      "activity": "Design",
+      "id": 6
     }
   ]
 }
