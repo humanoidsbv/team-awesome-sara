@@ -6,7 +6,7 @@ import { TimeEntryDate } from "../time-entry-date/TimeEntryDate";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryInterface } from "../../fixtures/time-entries";
 
-interface TimeEntriesProps {
+export interface TimeEntriesProps {
   timeEntries: TimeEntryInterface[];
 }
 
