@@ -6,16 +6,14 @@ import { TimeEntryDate } from "../time-entry-date/TimeEntryDate";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryInterface } from "../../fixtures/time-entries";
 
-interface TimeEntriesProps {
+export interface TimeEntriesProps {
   timeEntries: TimeEntryInterface[];
-  isDataError: boolean;
 }
 
-export function TimeEntries({ isDataError, timeEntries }: TimeEntriesProps) {
+export function TimeEntries({ timeEntries }: TimeEntriesProps) {
   const sortedTimeEntries = [...timeEntries].sort((a, b) => (a.startTime > b.startTime ? 1 : -1));
   return (
-    <Styled.TimeEntries isDataError={isDataError}>
-      {isDataError && <p>No Entries Found!</p>}
+    <Styled.TimeEntries>
       {sortedTimeEntries.map((timeEntry, i) => {
         const currentDate = getDate(timeEntry.startTime);
 

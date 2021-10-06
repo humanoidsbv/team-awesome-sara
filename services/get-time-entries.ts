@@ -8,7 +8,7 @@ export class NotFoundError extends Error {
 }
 
 export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
-  return fetch("http://localhost:3004/time-entries", {
+  return fetch("http://localhost:3004/time-entries2", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

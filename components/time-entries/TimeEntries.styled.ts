@@ -6,7 +6,7 @@ interface TimeEntryWrapperProps {
   isTop: boolean;
 }
 
-export const TimeEntries = styled.div<{ isDataError: boolean }>`
+export const TimeEntries = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -15,14 +15,6 @@ export const TimeEntries = styled.div<{ isDataError: boolean }>`
   @media (${({ theme }) => theme.desktop}) {
     font-size: 24px;
     margin: 23px 0 0 0;
-  }
-
-  > p {
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 30px;
-    text-align: center;
-    width: 100%;
   }
 `;
 

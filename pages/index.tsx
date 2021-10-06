@@ -11,6 +11,7 @@ import { TimeEntries } from "../components/time-entries/TimeEntries";
 import { TimeEntryInterface } from "../fixtures/time-entries";
 import { SearchBar } from "../components/search-bar/SearchBar";
 import { TimeEntryForm } from "../components/time-entry-form/TimeEntryForm";
+import { TimeEntriesError } from "../components/time-entries-error/TimeEntriesError";
 
 function Homepage() {
   const [timeEntries, setTimeEntries] = useState<TimeEntryInterface[]>([]);
@@ -21,7 +22,6 @@ function Homepage() {
     async function fetchTimeEntries() {
       const response = await getTimeEntries();
       if (response instanceof NotFoundError) {
-        console.log("Not found!", response);
         setIsDataError(true);
         return;
       }
@@ -49,7 +49,8 @@ function Homepage() {
             isFormOpen={isFormOpen}
             onClose={handleIsFormOpen}
           />
-          <TimeEntries isDataError={isDataError} timeEntries={timeEntries} />
+          <TimeEntries timeEntries={timeEntries} />
+          <TimeEntriesError isDataError={isDataError} timeEntries={timeEntries} />
         </Container>
       </ThemeProvider>
     </>
