@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
 import { TimeEntryInterface } from "../../fixtures/time-entries";
-import { saveTimeEntry, getTimeEntries } from "../../services/get-time-entries";
+import { saveTimeEntry } from "../../services/get-time-entries";
 
 interface TimeEntryFormPropsInterface {
   handleNewTimeEntry(newTimeEntry: TimeEntryInterface): void;
@@ -40,7 +40,6 @@ export function TimeEntryForm({
       activity: newTimeEntry.activity,
       client: newTimeEntry.client,
       endTime: new Date(`${newTimeEntry.date} ${newTimeEntry.to}`).toISOString(),
-      id: "",
       startTime: new Date(`${newTimeEntry.date} ${newTimeEntry.from}`).toISOString(),
     };
 

@@ -23,23 +23,9 @@ export const TimeEntryWrapper = styled.div<TimeEntryWrapperProps>`
   border-radius: 4px;
   width: 100%;
 
-  ${(props) =>
-    props.isBottom &&
-    `
-    border-radius: 0;
-    border-bottom-left-radius: 4px;
-  `}
+  ${(props) => props.isBottom && "border-radius: 0; border-bottom-left-radius: 4px;"}
 
-  ${(props) =>
-    props.isCenter &&
-    `
-    border-radius: 0;
-  `}
+  ${(props) => props.isCenter && "border-radius: 0;"}
 
-  ${(props) =>
-    props.isTop &&
-    `
-    border-radius: 0;
-    border-top-left-radius: 4px;
-  `}
+  ${(props) => props.isTop && "border-radius: 0; border-top-left-radius: 4px;"}
 `;
