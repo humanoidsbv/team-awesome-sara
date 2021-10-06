@@ -5,7 +5,7 @@ import { GlobalStyle } from "../styles/global";
 import { theme } from "../styles/theme";
 import { Header } from "../components/header/Header";
 import { Container } from "../components/Container";
-import { getTimeEntries } from "../services/get-time-entries";
+import { getTimeEntries, NotFoundError } from "../services/get-time-entries";
 import { NewEntryButtonWrapper } from "../components/new-entry-button-wrapper/NewEntryButtonWrapper";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
 import { TimeEntryInterface } from "../fixtures/time-entries";
@@ -15,10 +15,18 @@ import { TimeEntryForm } from "../components/time-entry-form/TimeEntryForm";
 function Homepage() {
   const [timeEntries, setTimeEntries] = useState<TimeEntryInterface[]>([]);
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
+  const [isDataError, setIsDataError] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchTimeEntries() {
-      setTimeEntries(await getTimeEntries());
+      const response = await getTimeEntries();
+      if (response instanceof NotFoundError) {
+        console.log("Not found!", response);
+        setIsDataError(true);
+        return;
+      }
+      setTimeEntries(response);
+      setIsDataError(false);
     }
     fetchTimeEntries();
   }, []);
@@ -41,7 +49,7 @@ function Homepage() {
             isFormOpen={isFormOpen}
             onClose={handleIsFormOpen}
           />
-          <TimeEntries timeEntries={timeEntries} />
+          <TimeEntries isDataError={isDataError} timeEntries={timeEntries} />
         </Container>
       </ThemeProvider>
     </>

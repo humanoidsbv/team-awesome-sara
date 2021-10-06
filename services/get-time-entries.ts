@@ -1,10 +1,9 @@
 import { TimeEntryInterface } from "../fixtures/time-entries";
 
 export class NotFoundError extends Error {
-  constructor(message) {
+  constructor(message: any) {
     super(message);
-    this.name = "NotFoundError";
-    console.log("HALLOO TEST");
+    this.name = "Error";
   }
 }
 
@@ -16,9 +15,8 @@ export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
     },
   })
     .then((response) => {
-      console.log(response.status);
       if (response.status === 404) {
-        throw new NotFoundError(response);
+        throw new NotFoundError(response.status);
       }
 
       return response;
