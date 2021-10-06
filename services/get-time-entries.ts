@@ -1,14 +1,14 @@
 import { TimeEntryInterface } from "../fixtures/time-entries";
 
 export class NotFoundError extends Error {
-  constructor(message: any) {
+  constructor(message: string) {
     super(message);
     this.name = "Error";
   }
 }
 
 export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
-  return fetch("http://localhost:3004/time-entries2", {
+  return fetch("http://localhost:3004/time-entries", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -16,7 +16,7 @@ export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
   })
     .then((response) => {
       if (response.status === 404) {
-        throw new NotFoundError(response.status);
+        throw new NotFoundError(response.status.toString());
       }
 
       return response;

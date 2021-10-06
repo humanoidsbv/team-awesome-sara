@@ -50,7 +50,7 @@ function Homepage() {
             onClose={handleIsFormOpen}
           />
           <TimeEntries timeEntries={timeEntries} />
-          <TimeEntriesError isDataError={isDataError} timeEntries={timeEntries} />
+          {!timeEntries.length && <TimeEntriesError isDataError={isDataError} />}
         </Container>
       </ThemeProvider>
     </>
