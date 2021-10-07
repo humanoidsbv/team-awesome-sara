@@ -18,7 +18,7 @@ function Homepage() {
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const [isDataError, setIsDataError] = useState<boolean>(false);
 
-  async function fetchTimeEntries() {
+  const fetchTimeEntries = async () => {
     const response = await getTimeEntries();
     if (response instanceof NotFoundError) {
       setIsDataError(true);
@@ -26,15 +26,13 @@ function Homepage() {
     }
     setTimeEntries(response);
     setIsDataError(false);
-  }
+  };
 
   useEffect(() => {
     fetchTimeEntries();
   }, []);
 
   const handleIsFormOpen = () => setIsFormOpen(!isFormOpen);
-
-  const handleNewTimeEntry = (newTimeEntry: TimeEntryInterface) => fetchTimeEntries();
 
   return (
     <>
@@ -45,7 +43,7 @@ function Homepage() {
         <Container>
           <NewEntryButtonWrapper handleIsFormOpen={handleIsFormOpen} isFormOpen={isFormOpen} />
           <TimeEntryForm
-            handleNewTimeEntry={handleNewTimeEntry}
+            fetchTimeEntries={fetchTimeEntries}
             isFormOpen={isFormOpen}
             onClose={handleIsFormOpen}
           />

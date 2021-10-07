@@ -2,11 +2,10 @@ import React, { useState, useRef } from "react";
 
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
-import { TimeEntryInterface } from "../../fixtures/time-entries";
 import { saveTimeEntry } from "../../services/get-time-entries";
 
 interface TimeEntryFormPropsInterface {
-  handleNewTimeEntry(newTimeEntry: TimeEntryInterface): void;
+  fetchTimeEntries: Function;
   isFormOpen: boolean;
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
 }
@@ -20,7 +19,7 @@ interface ValidityInterface {
 }
 
 export function TimeEntryForm({
-  handleNewTimeEntry,
+  fetchTimeEntries,
   isFormOpen,
   onClose,
 }: TimeEntryFormPropsInterface) {
@@ -45,7 +44,7 @@ export function TimeEntryForm({
 
     event.preventDefault();
     saveTimeEntry(updatedTimeEntry);
-    handleNewTimeEntry(updatedTimeEntry);
+    fetchTimeEntries();
     setNewTimeEntry({});
     event.target.reset();
   };
