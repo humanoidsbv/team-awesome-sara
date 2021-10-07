@@ -7,12 +7,12 @@ import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryInterface } from "../../fixtures/time-entries";
 
 export interface TimeEntriesProps {
-  deleteTimeEntries: (entryId: number) => Promise<void>;
-  entryId?: number;
+  onDeleteTimeEntry: (id: number) => Promise<void>;
+  id?: number;
   timeEntries: TimeEntryInterface[];
 }
 
-export function TimeEntries({ timeEntries, deleteTimeEntries }: TimeEntriesProps) {
+export function TimeEntries({ onDeleteTimeEntry, timeEntries }: TimeEntriesProps) {
   const sortedTimeEntries = [...timeEntries].sort((a, b) => (a.startTime > b.startTime ? 1 : -1));
   return (
     <Styled.TimeEntries>
@@ -36,11 +36,11 @@ export function TimeEntries({ timeEntries, deleteTimeEntries }: TimeEntriesProps
             <Styled.TimeEntryWrapper isTop={isTop} isBottom={isBottom} isCenter={isCenter}>
               <TimeEntry
                 client={timeEntry.client}
-                deleteTimeEntries={deleteTimeEntries}
-                entryId={timeEntry.id}
+                id={timeEntry.id}
                 isBottom={isBottom}
                 isCenter={isCenter}
                 isTop={isTop}
+                onDeleteTimeEntry={onDeleteTimeEntry}
                 startTime={timeEntry.startTime}
                 stopTime={timeEntry.endTime}
               />

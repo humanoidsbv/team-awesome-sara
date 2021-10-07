@@ -6,8 +6,8 @@ import ForbidIcon from "../../public/images/forbid.svg";
 
 interface TimeEntryPropsInterface {
   client: string;
-  deleteTimeEntries: (entryId: number) => Promise<void>;
-  entryId?: number;
+  onDeleteTimeEntry: (id: number) => Promise<void>;
+  id?: number;
   isBottom: boolean;
   isCenter: boolean;
   isTop: boolean;
@@ -17,8 +17,8 @@ interface TimeEntryPropsInterface {
 
 export function TimeEntry({
   client,
-  entryId,
-  deleteTimeEntries,
+  id,
+  onDeleteTimeEntry,
   isBottom,
   isCenter,
   isTop,
@@ -29,7 +29,7 @@ export function TimeEntry({
     <Styled.TimeEntry isBottom={isBottom} isCenter={isCenter} isTop={isTop}>
       <div>
         <p>{client}</p>
-        <Styled.DeleteButton onClick={() => deleteTimeEntries(entryId)}>
+        <Styled.DeleteButton onClick={() => onDeleteTimeEntry(id)}>
           <ForbidIcon />
           Delete
         </Styled.DeleteButton>

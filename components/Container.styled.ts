@@ -8,6 +8,6 @@ export const Container = styled.div`
   margin: 24px;
 
   @media (${({ theme }) => theme.desktop}) {
-    margin: 32px 10%;
+    margin: 32px 100px;
   }
 `;

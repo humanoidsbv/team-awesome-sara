@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
-import { saveTimeEntry } from "../../services/get-time-entries";
+import { saveTimeEntry } from "../../services/time-entry-api";
 
 interface TimeEntryFormPropsInterface {
   fetchTimeEntries: Function;
