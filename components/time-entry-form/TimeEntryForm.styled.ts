@@ -37,7 +37,6 @@ export const TimeEntryFormWrapper = styled.div<{ isOpen: boolean }>`
     column-gap: 16px;
     display: flex;
     justify-content: space-between;
-    margin-right: 245px;
     width: 100%;
   }
 `;
@@ -54,11 +53,11 @@ export const Form = styled.form<{ isFormValid: boolean }>`
     flex-direction: row;
   }
 
-  button {
+  > button {
     margin: 24px 0 16px 0;
 
     @media (${({ theme }) => theme.desktop}) {
-      margin: 0;
+      margin: 0 0 0 150px;
     }
   }
 `;

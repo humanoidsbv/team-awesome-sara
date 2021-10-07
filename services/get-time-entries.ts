@@ -25,7 +25,7 @@ export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
     .catch((error) => error);
 }
 
-export function saveTimeEntry(data: Object) {
+export const saveTimeEntry = async (data: TimeEntryInterface) => {
   return fetch("http://localhost:3004/time-entries", {
     method: "POST",
     headers: {
@@ -36,4 +36,15 @@ export function saveTimeEntry(data: Object) {
   })
     .then((response) => response.json())
     .catch((error) => error);
-}
+};
+
+export const deleteTimeEntry = async (id: number) => {
+  return fetch(`http://localhost:3004/time-entries/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((response) => console.log(response));
+};
