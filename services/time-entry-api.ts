@@ -19,7 +19,7 @@ export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
     .catch((error) => error);
 }
 
-export const saveTimeEntry = async (timeEntry: TimeEntryInterface) => {
+export async function saveTimeEntry(timeEntry: TimeEntryInterface) {
   return fetch("http://localhost:3004/time-entries", {
     method: "POST",
     headers: {
@@ -30,9 +30,9 @@ export const saveTimeEntry = async (timeEntry: TimeEntryInterface) => {
   })
     .then((response) => response.json())
     .catch((error) => error);
-};
+}
 
-export const deleteTimeEntry = async (id: number) => {
+export async function deleteTimeEntry(id: number) {
   return fetch(`http://localhost:3004/time-entries/${id}`, {
     method: "DELETE",
     headers: {
@@ -41,4 +41,4 @@ export const deleteTimeEntry = async (id: number) => {
   })
     .then((response) => response.json())
     .then((response) => console.log(response));
-};
+}

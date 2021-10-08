@@ -7,8 +7,8 @@ import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryInterface } from "../../fixtures/time-entries";
 
 export interface TimeEntriesProps {
-  onDeleteTimeEntry: (id: number) => Promise<void>;
   id?: number;
+  onDeleteTimeEntry: (id: number) => Promise<void>;
   timeEntries: TimeEntryInterface[];
 }
 

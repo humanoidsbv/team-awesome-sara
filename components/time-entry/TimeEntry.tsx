@@ -6,11 +6,11 @@ import ForbidIcon from "../../public/images/forbid.svg";
 
 interface TimeEntryPropsInterface {
   client: string;
-  onDeleteTimeEntry: (id: number) => Promise<void>;
   id?: number;
   isBottom: boolean;
   isCenter: boolean;
   isTop: boolean;
+  onDeleteTimeEntry: (id: number) => Promise<void>;
   startTime: string;
   stopTime: string;
 }
