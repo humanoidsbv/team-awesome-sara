@@ -2,27 +2,38 @@ import React from "react";
 
 import * as Styled from "./TimeEntry.styled";
 import { getTime } from "../../services/format/time";
+import ForbidIcon from "../../public/images/forbid.svg";
 
 interface TimeEntryPropsInterface {
   client: string;
-  isTop: boolean;
+  id?: number;
   isBottom: boolean;
   isCenter: boolean;
+  isTop: boolean;
+  onDeleteTimeEntry: (id: number) => Promise<void>;
   startTime: string;
   stopTime: string;
 }
 
 export function TimeEntry({
   client,
+  id,
+  onDeleteTimeEntry,
   isBottom,
-  isTop,
   isCenter,
+  isTop,
   startTime,
   stopTime,
 }: TimeEntryPropsInterface) {
   return (
     <Styled.TimeEntry isBottom={isBottom} isCenter={isCenter} isTop={isTop}>
-      <p>{client}</p>
+      <div>
+        <p>{client}</p>
+        <Styled.DeleteButton onClick={() => onDeleteTimeEntry(id)}>
+          <ForbidIcon />
+          Delete
+        </Styled.DeleteButton>
+      </div>
       <p>
         {/* eslint-disable */}
         {getTime(startTime)} - {getTime(stopTime)}

@@ -5,7 +5,8 @@ import { GlobalStyle } from "../styles/global";
 import { theme } from "../styles/theme";
 import { Header } from "../components/header/Header";
 import { Container } from "../components/Container";
-import { getTimeEntries, NotFoundError } from "../services/get-time-entries";
+import { getTimeEntries, deleteTimeEntry } from "../services/time-entry-api";
+import { NotFoundError } from "../services/not-found-error";
 import { NewEntryButtonWrapper } from "../components/new-entry-button-wrapper/NewEntryButtonWrapper";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
 import { TimeEntryInterface } from "../fixtures/time-entries";
@@ -34,6 +35,11 @@ function Homepage() {
 
   const handleIsFormOpen = () => setIsFormOpen(!isFormOpen);
 
+  const handleDeleteTimeEntry = async (id: number) => {
+    await deleteTimeEntry(id);
+    fetchTimeEntries();
+  };
+
   return (
     <>
       <GlobalStyle />
@@ -47,7 +53,7 @@ function Homepage() {
             isFormOpen={isFormOpen}
             onClose={handleIsFormOpen}
           />
-          <TimeEntries timeEntries={timeEntries} />
+          <TimeEntries onDeleteTimeEntry={handleDeleteTimeEntry} timeEntries={timeEntries} />
           {!timeEntries.length && <TimeEntriesError isDataError={isDataError} />}
         </Container>
       </ThemeProvider>

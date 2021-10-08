@@ -19,9 +19,25 @@ export const TimeEntry = styled.div<TimeEntryProps>`
   padding: 16px;
   width: 100%;
 
+  > div {
+    align-items: center;
+    column-gap: 33px;
+    display: flex;
+  }
+
   > p {
     font-size: 18px;
     font-weight: 600;
+  }
+
+  button {
+    display: none;
+  }
+
+  &:hover {
+    button {
+      display: flex;
+    }
   }
 
   ${(props) =>
@@ -49,4 +65,17 @@ export const TimeEntry = styled.div<TimeEntryProps>`
   @media (${({ theme }) => theme.desktop}) {
     padding: 32px;
   }
+`;
+
+export const DeleteButton = styled.button`
+  align-items: center;
+  background-color: #fb6375;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  column-gap: 8px;
+  cursor: pointer;
+  height: 30px;
+  justify-content: center;
+  padding: 6px 6px;
 `;

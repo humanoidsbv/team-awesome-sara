@@ -1,11 +1,5 @@
 import { TimeEntryInterface } from "../fixtures/time-entries";
-
-export class NotFoundError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = "Error";
-  }
-}
+import { NotFoundError } from "./not-found-error";
 
 export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
   return fetch("http://localhost:3004/time-entries", {
@@ -25,15 +19,26 @@ export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
     .catch((error) => error);
 }
 
-export function saveTimeEntry(data: Object) {
+export async function saveTimeEntry(timeEntry: TimeEntryInterface) {
   return fetch("http://localhost:3004/time-entries", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
 
-    body: JSON.stringify(data),
+    body: JSON.stringify(timeEntry),
   })
     .then((response) => response.json())
     .catch((error) => error);
+}
+
+export async function deleteTimeEntry(id: number) {
+  return fetch(`http://localhost:3004/time-entries/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((response) => console.log(response));
 }
