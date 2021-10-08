@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import * as Styled from "./TimeEntries.styled";
+import { StoreContext } from "../../contexts/StoreContext";
 import { getDate } from "../../services/format/date";
 import { TimeEntryDate } from "../time-entry-date/TimeEntryDate";
 import { TimeEntry } from "../time-entry/TimeEntry";
-import { TimeEntryInterface } from "../../fixtures/time-entries";
 
 export interface TimeEntriesProps {
   id?: number;
   onDeleteTimeEntry: (id: number) => Promise<void>;
-  timeEntries: TimeEntryInterface[];
 }
 
-export function TimeEntries({ onDeleteTimeEntry, timeEntries }: TimeEntriesProps) {
+export function TimeEntries({ onDeleteTimeEntry }: TimeEntriesProps) {
+  const state = useContext(StoreContext);
+  const [timeEntries] = state.timeEntries;
   const sortedTimeEntries = [...timeEntries].sort((a, b) => (a.startTime > b.startTime ? 1 : -1));
+
   return (
     <Styled.TimeEntries>
       {sortedTimeEntries.map((timeEntry, i) => {

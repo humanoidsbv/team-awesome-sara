@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { ThemeProvider } from "styled-components";
+import React, { useContext, useEffect, useState } from "react";
+import { StoreContext } from "../contexts/StoreContext";
 
-import { GlobalStyle } from "../styles/global";
-import { theme } from "../styles/theme";
 import { Header } from "../components/header/Header";
 import { Container } from "../components/Container";
 import { getTimeEntries, deleteTimeEntry } from "../services/time-entry-api";
 import { NotFoundError } from "../services/not-found-error";
 import { NewEntryButtonWrapper } from "../components/new-entry-button-wrapper/NewEntryButtonWrapper";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
-import { TimeEntryInterface } from "../fixtures/time-entries";
 import { SearchBar } from "../components/search-bar/SearchBar";
 import { TimeEntryForm } from "../components/time-entry-form/TimeEntryForm";
 import { TimeEntriesError } from "../components/time-entries-error/TimeEntriesError";
 
 function Homepage() {
-  const [timeEntries, setTimeEntries] = useState<TimeEntryInterface[]>([]);
+  const state = useContext(StoreContext);
+  const [timeEntries, setTimeEntries] = state.timeEntries;
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const [isDataError, setIsDataError] = useState<boolean>(false);
 
@@ -42,21 +40,18 @@ function Homepage() {
 
   return (
     <>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Header />
-        <SearchBar timeEntries={timeEntries} />
-        <Container>
-          <NewEntryButtonWrapper handleIsFormOpen={handleIsFormOpen} isFormOpen={isFormOpen} />
-          <TimeEntryForm
-            fetchTimeEntries={fetchTimeEntries}
-            isFormOpen={isFormOpen}
-            onClose={handleIsFormOpen}
-          />
-          <TimeEntries onDeleteTimeEntry={handleDeleteTimeEntry} timeEntries={timeEntries} />
-          {!timeEntries.length && <TimeEntriesError isDataError={isDataError} />}
-        </Container>
-      </ThemeProvider>
+      <Header />
+      <SearchBar />
+      <Container>
+        <NewEntryButtonWrapper handleIsFormOpen={handleIsFormOpen} isFormOpen={isFormOpen} />
+        <TimeEntryForm
+          fetchTimeEntries={fetchTimeEntries}
+          isFormOpen={isFormOpen}
+          onClose={handleIsFormOpen}
+        />
+        <TimeEntries onDeleteTimeEntry={handleDeleteTimeEntry} />
+        {!timeEntries.length && <TimeEntriesError isDataError={isDataError} />}
+      </Container>
     </>
   );
 }
