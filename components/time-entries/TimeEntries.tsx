@@ -1,28 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import * as Styled from "./TimeEntries.styled";
+import { StoreContext } from "../../contexts/StoreContext";
 import { getDate } from "../../services/format/date";
 import { TimeEntryDate } from "../time-entry-date/TimeEntryDate";
 import { TimeEntry } from "../time-entry/TimeEntry";
-import { TimeEntryInterface } from "../../fixtures/time-entries";
 
 export interface TimeEntriesProps {
   id?: number;
   onDeleteTimeEntry: (id: number) => Promise<void>;
-  timeEntries: TimeEntryInterface[];
 }
 
-export function TimeEntries({ onDeleteTimeEntry, timeEntries }: TimeEntriesProps) {
-  const sortedTimeEntries = [...timeEntries].sort((a, b) => (a.startTime > b.startTime ? 1 : -1));
+export function TimeEntries({ onDeleteTimeEntry }: TimeEntriesProps) {
+  const state = useContext(StoreContext);
+  const [timeEntries] = state.timeEntries;
+
   return (
     <Styled.TimeEntries>
-      {sortedTimeEntries.map((timeEntry, i) => {
+      {timeEntries.map((timeEntry, i) => {
         const currentDate = getDate(timeEntry.startTime);
 
-        const isFirst = i === 0 || currentDate !== getDate(sortedTimeEntries[i - 1]?.startTime);
+        const isFirst = i === 0 || currentDate !== getDate(timeEntries[i - 1]?.startTime);
         const isLast =
-          i === sortedTimeEntries.length - 1 ||
-          currentDate !== getDate(sortedTimeEntries[i + 1]?.startTime);
+          i === timeEntries.length - 1 || currentDate !== getDate(timeEntries[i + 1]?.startTime);
 
         const isTop = isFirst && !isLast;
         const isBottom = !isFirst && isLast;
@@ -30,7 +30,7 @@ export function TimeEntries({ onDeleteTimeEntry, timeEntries }: TimeEntriesProps
 
         return (
           <React.Fragment key={timeEntry.id}>
-            {(i === 0 || currentDate !== getDate(sortedTimeEntries[i - 1].startTime)) && (
+            {(i === 0 || currentDate !== getDate(timeEntries[i - 1].startTime)) && (
               <TimeEntryDate date={timeEntry.startTime} />
             )}
             <Styled.TimeEntryWrapper isTop={isTop} isBottom={isBottom} isCenter={isCenter}>

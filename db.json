@@ -41,6 +41,13 @@
       "endTime": "1990-09-12T18:00:00.000Z",
       "activity": "Design",
       "id": 6
+    },
+    {
+      "activity": "Test",
+      "client": "Port of Rotterdam",
+      "endTime": "2011-12-02T10:02:00.000Z",
+      "startTime": "2011-12-02T11:12:00.000Z",
+      "id": 7
     }
   ]
 }

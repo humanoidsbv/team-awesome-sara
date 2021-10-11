@@ -1,13 +1,13 @@
-import React from "react";
-import { TimeEntryInterface } from "../../fixtures/time-entries";
+import React, { useContext } from "react";
 
 import * as Styled from "./SearchBar.styled";
 
-interface SearchBarPropsInterface {
-  timeEntries: TimeEntryInterface[];
-}
+import { StoreContext } from "../../contexts/StoreContext";
 
-export function SearchBar({ timeEntries }: SearchBarPropsInterface) {
+export function SearchBar() {
+  const state = useContext(StoreContext);
+  const [timeEntries] = state.timeEntries;
+
   return (
     <Styled.SearchBar>
       <Styled.Title>Timesheets</Styled.Title>|
