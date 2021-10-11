@@ -12,19 +12,18 @@ import { TimeEntryForm } from "../components/time-entry-form/TimeEntryForm";
 import { TimeEntriesError } from "../components/time-entries-error/TimeEntriesError";
 
 function Homepage() {
-  const state = useContext(StoreContext);
-  const [timeEntries, setTimeEntries] = state.timeEntries;
-  const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
-  const [isDataError, setIsDataError] = useState<boolean>(false);
+  const [timeEntries, setTimeEntries] = useContext(StoreContext).timeEntries;
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isDataError, setIsDataError] = useState(false);
 
   const fetchTimeEntries = async () => {
+    setIsDataError(false);
     const response = await getTimeEntries();
     if (response instanceof NotFoundError) {
       setIsDataError(true);
       return;
     }
     setTimeEntries(response);
-    setIsDataError(false);
   };
 
   useEffect(() => {
