@@ -14,17 +14,15 @@ export interface TimeEntriesProps {
 export function TimeEntries({ onDeleteTimeEntry }: TimeEntriesProps) {
   const state = useContext(StoreContext);
   const [timeEntries] = state.timeEntries;
-  const sortedTimeEntries = [...timeEntries].sort((a, b) => (a.startTime > b.startTime ? 1 : -1));
 
   return (
     <Styled.TimeEntries>
-      {sortedTimeEntries.map((timeEntry, i) => {
+      {timeEntries.map((timeEntry, i) => {
         const currentDate = getDate(timeEntry.startTime);
 
-        const isFirst = i === 0 || currentDate !== getDate(sortedTimeEntries[i - 1]?.startTime);
+        const isFirst = i === 0 || currentDate !== getDate(timeEntries[i - 1]?.startTime);
         const isLast =
-          i === sortedTimeEntries.length - 1 ||
-          currentDate !== getDate(sortedTimeEntries[i + 1]?.startTime);
+          i === timeEntries.length - 1 || currentDate !== getDate(timeEntries[i + 1]?.startTime);
 
         const isTop = isFirst && !isLast;
         const isBottom = !isFirst && isLast;
@@ -32,7 +30,7 @@ export function TimeEntries({ onDeleteTimeEntry }: TimeEntriesProps) {
 
         return (
           <React.Fragment key={timeEntry.id}>
-            {(i === 0 || currentDate !== getDate(sortedTimeEntries[i - 1].startTime)) && (
+            {(i === 0 || currentDate !== getDate(timeEntries[i - 1].startTime)) && (
               <TimeEntryDate date={timeEntry.startTime} />
             )}
             <Styled.TimeEntryWrapper isTop={isTop} isBottom={isBottom} isCenter={isCenter}>
