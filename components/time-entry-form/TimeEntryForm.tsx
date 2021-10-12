@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
 import { saveTimeEntry } from "../../services/time-entry-api";
+import { PageTitle } from "../page-title/PageTitle";
 
 interface TimeEntryFormPropsInterface {
   fetchTimeEntries: Function;
@@ -55,7 +56,7 @@ export function TimeEntryForm({
 
   return (
     <>
-      <Styled.Title>New Time Entry</Styled.Title>
+      <PageTitle title="New Time Entry" />
       <Styled.TimeEntryFormWrapper isOpen={isFormOpen}>
         <Styled.CloseButton onClick={onClose}>
           <img src="./images/close.svg" alt="Close new entry menu" />

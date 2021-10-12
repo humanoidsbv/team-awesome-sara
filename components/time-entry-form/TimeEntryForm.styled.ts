@@ -1,19 +1,5 @@
 import styled from "styled-components";
 
-export const Title = styled.h1`
-  display: none;
-
-  @media (${({ theme }) => theme.desktop}) {
-    color: #354052;
-    display: inline;
-    font-size: 24px;
-    font-weight: 400;
-    margin-bottom: 25px;
-    text-align: left;
-    width: 100%;
-  }
-`;
-
 export const TimeEntryFormWrapper = styled.div<{ isOpen: boolean }>`
   background-color: #f5f8fa;
   border: solid 1px ${({ theme }) => theme.borderColorPrimary};

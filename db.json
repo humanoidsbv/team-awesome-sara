@@ -36,18 +36,33 @@
       "id": 5
     },
     {
-      "client": "Humanoids Two",
-      "startTime": "1990-09-12T17:00:00.000Z",
-      "endTime": "1990-09-12T18:00:00.000Z",
-      "activity": "Design",
-      "id": 6
-    },
-    {
       "activity": "Test",
       "client": "Port of Rotterdam",
       "endTime": "2011-12-02T10:02:00.000Z",
       "startTime": "2011-12-02T11:12:00.000Z",
       "id": 7
+    }
+  ],
+  "team-members": [
+    {
+      "firstName": "Antje",
+      "lastName": "Adriaens",
+      "img": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80",
+      "role": "UX Designer",
+      "employeeNumber": "HUM_001",
+      "currentEmployer": "Hike One",
+      "startDate": "2016-12-02T11:12:00.000Z",
+      "id": 1
+    },
+    {
+      "firstName": "Henk",
+      "lastName": "De Vries",
+      "img": "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
+      "role": "UX Designer",
+      "employeeNumber": "HUM_001",
+      "currentEmployer": "Hike One",
+      "startDate": "2011-12-02T11:12:00.000Z",
+      "id": 2
     }
   ]
 }

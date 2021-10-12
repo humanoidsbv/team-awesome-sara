@@ -1,17 +1,18 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import * as Styled from "./SearchBar.styled";
 
-import { StoreContext } from "../../contexts/StoreContext";
+interface SearchBarInterface {
+  count: string | [] | any;
+  title: string;
+  units: string;
+}
 
-export function SearchBar() {
-  const state = useContext(StoreContext);
-  const [timeEntries] = state.timeEntries;
-
+export function SearchBar({ count, title, units }: SearchBarInterface) {
   return (
     <Styled.SearchBar>
-      <Styled.Title>Timesheets</Styled.Title>|
-      <Styled.EntryCount>{`${timeEntries?.length} Entries`}</Styled.EntryCount>
+      <Styled.Title>{title}</Styled.Title>|
+      <Styled.EntryCount>{`${count?.length} ${units}`}</Styled.EntryCount>
     </Styled.SearchBar>
   );
 }

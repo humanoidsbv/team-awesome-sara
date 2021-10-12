@@ -5,7 +5,7 @@ import { Header } from "../components/header/Header";
 import { Container } from "../components/Container";
 import { getTimeEntries, deleteTimeEntry } from "../services/time-entry-api";
 import { NotFoundError } from "../services/not-found-error";
-import { NewEntryButtonWrapper } from "../components/new-entry-button-wrapper/NewEntryButtonWrapper";
+import { AddButtonWrapper } from "../components/add-button-wrapper/AddButtonWrapper";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
 import { SearchBar } from "../components/search-bar/SearchBar";
 import { TimeEntryForm } from "../components/time-entry-form/TimeEntryForm";
@@ -40,9 +40,13 @@ function Homepage() {
   return (
     <>
       <Header />
-      <SearchBar />
+      <SearchBar count={timeEntries} units="Entries" title="Timesheets" />
       <Container>
-        <NewEntryButtonWrapper handleIsFormOpen={handleIsFormOpen} isFormOpen={isFormOpen} />
+        <AddButtonWrapper
+          title="New time entry"
+          handleIsFormOpen={handleIsFormOpen}
+          isFormOpen={isFormOpen}
+        />
         <TimeEntryForm
           fetchTimeEntries={fetchTimeEntries}
           isFormOpen={isFormOpen}
