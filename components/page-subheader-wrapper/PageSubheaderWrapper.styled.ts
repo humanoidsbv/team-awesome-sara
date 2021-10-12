@@ -28,9 +28,9 @@ export const PageSubheaderWrapper = styled.div`
 
   button {
     @media (${({ theme }) => theme.desktop}) {
-      display: flex;
-      width: 156px;
+      display: flex !important;
       margin-left: auto;
+      width: 156px;
     }
   }
 `;
