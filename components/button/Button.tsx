@@ -17,12 +17,14 @@ export function Button({
   onClick,
   primary,
   secondary,
+  tertiary,
   ...props
 }: ButtonPropsInterface) {
   return (
     <>
       {primary && <Styled.Primary onClick={onClick}>{children}</Styled.Primary>}
-      {secondary && (
+      {secondary && <Styled.Secondary onClick={onClick}>{children}</Styled.Secondary>}
+      {tertiary && (
         <Styled.Disabled disabled={isDisabled} onClick={onClick} type="submit" {...props}>
           {children}
         </Styled.Disabled>

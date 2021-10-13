@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../contexts/StoreContext";
 
 import { Header } from "../components/header/Header";
@@ -7,16 +7,20 @@ import { Container } from "../components/Container";
 import { MemberEntries } from "../components/member-entries/MemberEntries";
 import { getTeamMembers } from "../services/team-members-api";
 import { NotFoundError } from "../services/not-found-error";
-import { PageSubheaderWrapper } from "../components/page-subheader-wrapper/PageSubheaderWrapper";
+import { MembersSubheader } from "../components/page-subheader-container/MembersSubheader";
+import { AddMemberContainer } from "../components/add-member-container/AddMemberContainer";
 
 export function TeamMembersPage() {
   const [teamMembers, setTeamMembers] = useContext(StoreContext).teamMembers;
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const fetchTeamMembers = async () => {
     const response = await getTeamMembers();
+
     if (response instanceof NotFoundError) {
       return;
     }
+
     setTeamMembers(response);
   };
 
@@ -24,14 +28,16 @@ export function TeamMembersPage() {
     fetchTeamMembers();
   }, []);
 
+  const handleIsFormOpen = () => setIsFormOpen(!isFormOpen);
+
   return (
     <>
       <Header />
-      {/* Bij header doorgeven dat we op pagina team-members zitten met props. */}
-      <SearchBar units="Humanoids" title="Team members" count={teamMembers} />
+      <SearchBar count={teamMembers} title="Team members" units="Humanoids" />
       <Container>
-        <PageSubheaderWrapper />
-        <MemberEntries />
+        <MembersSubheader handleIsFormOpen={handleIsFormOpen} isFormOpen={isFormOpen} />
+        {!isFormOpen && <MemberEntries />}
+        {isFormOpen && <AddMemberContainer fetchTeamMembers={fetchTeamMembers} />}
       </Container>
     </>
   );

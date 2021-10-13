@@ -16,7 +16,7 @@ export function TimeEntries({ onDeleteTimeEntry }: TimeEntriesProps) {
 
   return (
     <Styled.TimeEntries>
-      {[...timeEntries].map((timeEntry, i) => {
+      {timeEntries.map((timeEntry, i) => {
         const currentDate = getDate(timeEntry.startTime);
 
         const isFirst = i === 0 || currentDate !== getDate(timeEntries[i - 1]?.startTime);

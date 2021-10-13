@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const PageSubheaderWrapper = styled.div`
+export const MembersSubheader = styled.div`
+  align-items: flex-end;
   column-gap: 12px;
   display: flex;
   width: 100%;
-  align-items: flex-end;
 
   @media (${({ theme }) => theme.desktop}) {
     display: flex;
@@ -26,9 +26,16 @@ export const PageSubheaderWrapper = styled.div`
     }
   }
 
-  button {
+  > button {
+    width: 156px;
+  }
+`;
+
+export const NewMemberButtonWrapper = styled.div`
+  width: 100%;
+
+  > button {
     @media (${({ theme }) => theme.desktop}) {
-      display: flex !important;
       margin-left: auto;
       width: 156px;
     }

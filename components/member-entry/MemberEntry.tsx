@@ -13,11 +13,16 @@ export function MemberEntry({ teamMember }: MemberEntryInterface) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const toggleIsOpen = () => setIsOpen(!isOpen);
 
+  const randomNumber = Math.floor(Math.random() * 100000 + 1);
+
   return (
     <Styled.MemberEntry onClick={toggleIsOpen} isOpen={isOpen}>
       <div className="profilediv">
         <Styled.MemberProfileWrapper>
-          <img src={teamMember.img} alt="Team member" />
+          <img
+            src={`https://source.unsplash.com/random/50x50?sig=${randomNumber}`}
+            alt="Team member"
+          />
           <MemberInfo
             title={`${teamMember.firstName} ${teamMember.lastName}`}
             subtitle={teamMember.role}
@@ -29,14 +34,14 @@ export function MemberEntry({ teamMember }: MemberEntryInterface) {
         <p>{`Detailed information about ${teamMember.firstName}`}</p>
       </Styled.DetailedInfoDiv>
       <Styled.AdditionalInfoWrapper isOpen={isOpen}>
-        <MemberInfo isInvisible title={teamMember.employeeNumber} subtitle="Employee number" />
-        <MemberInfo title={teamMember.currentEmployer} subtitle="Current employer" />
+        <MemberInfo isInvisible subtitle="Employee number" title={teamMember.employeeNumber} />
+        <MemberInfo subtitle="Current employer" title="Humanoids" />
         <MemberInfo
+          subtitle="Starting date"
           title={new Date(teamMember.startDate).toLocaleString("default", {
             month: "long",
             year: "numeric",
           })}
-          subtitle="Starting date"
         />
       </Styled.AdditionalInfoWrapper>
     </Styled.MemberEntry>

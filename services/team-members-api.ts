@@ -17,3 +17,16 @@ export async function getTeamMembers(): Promise<any> {
     .then((response) => response.json())
     .catch((error) => error);
 }
+
+export async function saveTeamMember(teamMember: any) {
+  return fetch("http://localhost:3004/team-members", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify(teamMember),
+  })
+    .then((response) => response.json())
+    .catch((error) => error);
+}

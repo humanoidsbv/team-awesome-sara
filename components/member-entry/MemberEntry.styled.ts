@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const MemberEntry = styled.div<{ isOpen: boolean }>`
   align-items: ${(props) => (props.isOpen ? "flex-start" : "center")};
-  border-radius: 4px;
   border: solid 1px ${({ theme }) => theme.borderColorPrimary};
+  border-radius: 4px;
   border-left: solid 4px ${({ theme }) => theme.primaryColor};
   display: flex;
   flex-direction: ${(props) => (props.isOpen ? "column" : "row")};
