@@ -35,4 +35,8 @@ export const Navigation = styled.ul<{ isOpen: boolean }>`
   > li:hover {
     background-color: #1166a5;
   }
+
+  > li.active {
+    background-color: #1166a5;
+  }
 `;

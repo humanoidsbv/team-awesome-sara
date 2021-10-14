@@ -12,8 +12,7 @@ export interface TimeEntriesProps {
 }
 
 export function TimeEntries({ onDeleteTimeEntry }: TimeEntriesProps) {
-  const state = useContext(StoreContext);
-  const [timeEntries] = state.timeEntries;
+  const [timeEntries] = useContext(StoreContext).timeEntries;
 
   return (
     <Styled.TimeEntries>

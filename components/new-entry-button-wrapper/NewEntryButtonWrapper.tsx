@@ -4,20 +4,22 @@ import * as Styled from "./NewEntryButtonWrapper.styled";
 import { Button } from "../button/Button";
 import { Icon } from "../icon/Icon";
 
-interface NewEntryButtonWrapperPropsInterface {
-  isFormOpen: boolean;
-  handleIsFormOpen: () => void;
+interface NewEntryButtonWrapperInterface {
+  handleIsFormOpen?: () => void;
+  isFormOpen?: boolean;
+  title: string;
 }
 
 export function NewEntryButtonWrapper({
-  isFormOpen,
   handleIsFormOpen,
-}: NewEntryButtonWrapperPropsInterface) {
+  isFormOpen,
+  title,
+}: NewEntryButtonWrapperInterface) {
   return (
     <Styled.NewEntryButtonWrapper isFormOpen={isFormOpen}>
-      <Button primary onClick={handleIsFormOpen}>
+      <Button onClick={handleIsFormOpen} primary type="button">
         <Icon />
-        New time entry
+        {title}
       </Button>
     </Styled.NewEntryButtonWrapper>
   );

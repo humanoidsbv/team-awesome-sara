@@ -7,26 +7,27 @@ interface ButtonPropsInterface {
   children: React.ReactNode;
   isDisabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  primary?: boolean;
-  submit?: boolean;
+  secondary?: boolean;
+  type?: "submit" | "button";
 }
 
 export function Button({
   children,
   isDisabled,
   onClick,
-  primary,
   secondary,
+  type,
   ...props
 }: ButtonPropsInterface) {
   return (
-    <>
-      {primary && <Styled.Primary onClick={onClick}>{children}</Styled.Primary>}
-      {secondary && (
-        <Styled.Disabled disabled={isDisabled} onClick={onClick} type="submit" {...props}>
-          {children}
-        </Styled.Disabled>
-      )}
-    </>
+    <Styled.Button
+      disabled={isDisabled}
+      onClick={onClick}
+      secondary={secondary}
+      type={type}
+      {...props}
+    >
+      {children}
+    </Styled.Button>
   );
 }

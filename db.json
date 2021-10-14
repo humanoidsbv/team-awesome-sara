@@ -36,17 +36,92 @@
       "id": 5
     },
     {
-      "client": "Humanoids Two",
-      "startTime": "1990-09-12T17:00:00.000Z",
-      "endTime": "1990-09-12T18:00:00.000Z",
-      "activity": "Design",
-      "id": 6
-    },
-    {
       "activity": "Test",
       "client": "Port of Rotterdam",
       "endTime": "2011-12-02T10:02:00.000Z",
       "startTime": "2011-12-02T11:12:00.000Z",
+      "id": 7
+    }
+  ],
+  "team-members": [
+    {
+      "firstName": "Antje",
+      "lastName": "Adriaens",
+      "role": "UX Designer",
+      "employeeNumber": "HUM_1",
+      "currentEmployer": "Hike One",
+      "startDate": "2016-12-02T11:12:00.000Z",
+      "id": 1
+    },
+    {
+      "firstName": "Henk",
+      "lastName": "De Vries",
+      "role": "UX Designer",
+      "employeeNumber": "HUM_2",
+      "currentEmployer": "Hike One",
+      "startDate": "2011-12-02T11:12:00.000Z",
+      "id": 2
+    },
+    {
+      "address": "Badhuisstraat 10",
+      "bio": "Sara",
+      "locality": "Peterselie",
+      "emailAddress": "sara@sara.com",
+      "firstName": "Sara",
+      "lastName": "van den Berg",
+      "socials": "@sara",
+      "postalCode": "2020 GH",
+      "employeeNumber": "HUM_3",
+      "startDate": "2021-10-13T08:46:57.872Z",
+      "id": 3
+    },
+    {
+      "address": "adsadad",
+      "bio": "asdada",
+      "locality": "1212",
+      "emailAddress": "asd@akdja.s",
+      "firstName": "Sara",
+      "lastName": "Hallo",
+      "socials": "12",
+      "postalCode": "1212",
+      "employeeNumber": "HUM_4",
+      "startDate": "2021-10-13T08:50:46.144Z",
+      "id": 4
+    },
+    {
+      "address": "as",
+      "bio": "ahdjahd",
+      "employeeNumber": "HUM_5",
+      "firstName": "test",
+      "lastName": "hoi",
+      "locality": "12",
+      "postalCode": "1212",
+      "socials": "12",
+      "startDate": "2021-10-13T11:29:49.439Z",
+      "id": 5
+    },
+    {
+      "address": "hal",
+      "bio": "ad",
+      "employeeNumber": "HUM_6",
+      "firstName": "Hallo",
+      "lastName": "Hallo",
+      "locality": "jahda",
+      "postalCode": "hadajd",
+      "socials": "jada",
+      "startDate": "2021-10-13T11:35:09.728Z",
+      "id": 6
+    },
+    {
+      "address": "hal",
+      "bio": "sfad",
+      "employeeNumber": "HUM_7",
+      "firstName": "Hallo",
+      "lastName": "Hallo",
+      "locality": "adsd",
+      "postalCode": "hadajd",
+      "socials": "asdasd",
+      "startDate": "Thu Oct 14 2021 14:14:20 GMT+0200 (Central European Summer Time)",
       "id": 7
     }
   ]

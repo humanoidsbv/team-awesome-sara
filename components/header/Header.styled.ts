@@ -9,7 +9,7 @@ export const Header = styled.nav`
 
   @media (${({ theme }) => theme.desktop}) {
     flex-direction: row;
-    height: 50px;
+    height: 70px;
     justify-content: space-between;
     padding: 0 46px 0 30px;
   }
