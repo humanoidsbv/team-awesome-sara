@@ -6,6 +6,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next & npm run json-server",
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "json-server": "json-server --watch db.json --port 3004",
     "start": "next start"
   },
