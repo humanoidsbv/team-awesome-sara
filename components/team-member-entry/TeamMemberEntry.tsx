@@ -35,7 +35,7 @@ export function TeamMemberEntry({ teamMember }: TeamMemberEntryInterface) {
         <p>{`Detailed information about ${teamMember.firstName}`}</p>
       </Styled.DetailedInfoDiv>
       <Styled.AdditionalInfoWrapper isOpen={isOpen}>
-        <TeamMemberInfo isInvisible subtitle="Employee number" title={teamMember.employeeNumber} />
+        <TeamMemberInfo isDesktop subtitle="Employee number" title={teamMember.employeeNumber} />
         <TeamMemberInfo subtitle="Current employer" title="Humanoids" />
         <TeamMemberInfo subtitle="Starting date" title={getMonthYear(teamMember.startDate)} />
       </Styled.AdditionalInfoWrapper>

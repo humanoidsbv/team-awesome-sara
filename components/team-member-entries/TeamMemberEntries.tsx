@@ -7,17 +7,17 @@ import { TeamMemberEntry } from "../team-member-entry/TeamMemberEntry";
 export interface TeamMemberInterface {
   address?: string;
   bio?: string;
-  locality?: string;
   currentEmployer?: string;
   emailAddress?: string;
   employeeNumber?: string;
   firstName?: string;
   id?: number;
   lastName?: string;
+  locality?: string;
+  postalCode?: string;
   role?: string;
   socials?: string;
   startDate?: string;
-  postalCode?: string;
 }
 
 export function TeamMemberEntries() {

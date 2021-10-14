@@ -28,7 +28,7 @@ export function TeamMemberForm({ fetchTeamMembers, setIsFormOpen }: AddMemberCon
     const updatedTeamMember = {
       address: newTeamMember.address,
       bio: newTeamMember.bio,
-      email: newTeamMember.emailAddress,
+      emailAddress: newTeamMember.emailAddress,
       employeeNumber: `HUM_${teamMembers.length + 1}`,
       firstName: newTeamMember.firstName,
       lastName: newTeamMember.lastName,

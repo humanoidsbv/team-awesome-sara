@@ -3,14 +3,14 @@ import React from "react";
 import * as Styled from "./TeamMemberInfo.styled";
 
 interface TeamMemberInfoProps {
-  isInvisible?: boolean;
+  isDesktop?: boolean;
   subtitle: string;
   title: string;
 }
 
-export function TeamMemberInfo({ isInvisible, subtitle, title }: TeamMemberInfoProps) {
+export function TeamMemberInfo({ isDesktop, subtitle, title }: TeamMemberInfoProps) {
   return (
-    <Styled.TeamMemberInfo isInvisible={isInvisible}>
+    <Styled.TeamMemberInfo isDesktop={isDesktop}>
       <p>{title}</p>
       <p>
         <span>{subtitle}</span>

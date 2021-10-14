@@ -8,8 +8,8 @@ interface StoreProviderProps {
 }
 
 interface StoreContextProps {
-  teamMembers: [teamMembers: TeamMemberInterface[], setTeamMembers: Function];
-  timeEntries: [timeEntries: TimeEntryInterface[], setTimeEntries: Function];
+  teamMembers: [setTeamMembers: Function, teamMembers: TeamMemberInterface[]];
+  timeEntries: [setTimeEntries: Function, timeEntries: TimeEntryInterface[]];
 }
 
 export const StoreContext = createContext<StoreContextProps>(null);
