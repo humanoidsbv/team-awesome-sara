@@ -107,6 +107,10 @@ export const Input = styled.input`
   padding: 8px 12px;
   text-align: left;
   width: 100%;
+
+  ::placeholder {
+    color: lightgray;
+  }
 `;
 
 export const TextArea = styled.textarea`

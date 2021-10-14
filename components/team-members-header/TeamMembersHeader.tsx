@@ -18,7 +18,7 @@ export function TeamMembersHeader({ handleIsFormOpen, isFormOpen }: TeamMembersH
           <>
             <PageTitle title="All Humanoids" />
             <Styled.NewMemberButtonWrapper>
-              <Button onClick={handleIsFormOpen}>
+              <Button onClick={handleIsFormOpen} type="button">
                 <Icon />
                 New Humanoid
               </Button>
@@ -32,10 +32,12 @@ export function TeamMembersHeader({ handleIsFormOpen, isFormOpen }: TeamMembersH
         {isFormOpen && (
           <>
             <PageTitle title="Add Humanoid" />
-            <Button onClick={handleIsFormOpen} secondary>
+            <Button onClick={handleIsFormOpen} secondary type="button">
               Cancel
             </Button>
-            <Button form="my-form">Save</Button>
+            <Button form="my-form" type="submit">
+              Save
+            </Button>
           </>
         )}
       </Styled.TeamMembersHeader>

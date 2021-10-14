@@ -17,7 +17,7 @@ export function NewEntryButtonWrapper({
 }: NewEntryButtonWrapperInterface) {
   return (
     <Styled.NewEntryButtonWrapper isFormOpen={isFormOpen}>
-      <Button onClick={handleIsFormOpen} primary>
+      <Button onClick={handleIsFormOpen} primary type="button">
         <Icon />
         {title}
       </Button>

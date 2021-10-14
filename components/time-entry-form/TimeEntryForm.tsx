@@ -124,7 +124,7 @@ export function TimeEntryForm({
               />
             </Styled.Label>
           </div>
-          <Button isDisabled={!isFormValid} tertiary>
+          <Button type="submit" isDisabled={!isFormValid} tertiary>
             Add
           </Button>
         </Styled.Form>

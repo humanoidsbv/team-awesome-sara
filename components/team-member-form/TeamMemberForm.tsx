@@ -25,7 +25,7 @@ export function TeamMemberForm({ fetchTeamMembers, setIsFormOpen }: AddMemberCon
   const handleSubmit = (event: React.BaseSyntheticEvent) => {
     event.preventDefault();
 
-    const updatedTeamMember = {
+    const formattedTeamMember = {
       address: newTeamMember.address,
       bio: newTeamMember.bio,
       emailAddress: newTeamMember.emailAddress,
@@ -38,7 +38,7 @@ export function TeamMemberForm({ fetchTeamMembers, setIsFormOpen }: AddMemberCon
       startDate: new Date().toString(),
     };
 
-    saveTeamMember(updatedTeamMember);
+    saveTeamMember(formattedTeamMember);
     fetchTeamMembers();
     setNewTeamMember({});
     event.target.reset();
@@ -65,7 +65,7 @@ export function TeamMemberForm({ fetchTeamMembers, setIsFormOpen }: AddMemberCon
                 id="firstName"
                 name="firstName"
                 onChange={handleChange}
-                placeholder="Niels"
+                placeholder="John"
                 required
                 type="text"
               />
@@ -76,7 +76,7 @@ export function TeamMemberForm({ fetchTeamMembers, setIsFormOpen }: AddMemberCon
                 id="lastName"
                 name="lastName"
                 onChange={handleChange}
-                placeholder="Brandhorst"
+                placeholder="Doe"
                 required
                 type="text"
               />
@@ -88,18 +88,13 @@ export function TeamMemberForm({ fetchTeamMembers, setIsFormOpen }: AddMemberCon
               id="email-address"
               name="email-address"
               onChange={handleChange}
-              placeholder="Niels.Brandhorst@humanoids.nl"
+              placeholder="JohnDoe@humanoids.nl"
               required
               type="email"
             />
           </Styled.Label>
           <Styled.Label htmlFor="bio">Bio</Styled.Label>
-          <Styled.TextArea
-            name="bio"
-            onChange={handleChange}
-            placeholder="Niels is a tech savy Architect and Entrepreneur, maintaining a keen interest in software and design tools, such as parametric modelling (Rhino/Grasshopper) and BIM. "
-            required
-          />
+          <Styled.TextArea name="bio" onChange={handleChange} required />
         </div>
         <div className="div-form-right">
           <Styled.Label htmlFor="address">
@@ -120,7 +115,7 @@ export function TeamMemberForm({ fetchTeamMembers, setIsFormOpen }: AddMemberCon
                 id="postalCode"
                 name="postalCode"
                 onChange={handleChange}
-                placeholder="2521 CJ"
+                placeholder="2012 CJ"
                 required
                 type="text"
               />
@@ -142,7 +137,7 @@ export function TeamMemberForm({ fetchTeamMembers, setIsFormOpen }: AddMemberCon
             <Styled.Input
               name="socials"
               onChange={handleChange}
-              placeholder="@nbrandhorst"
+              placeholder="@vliegendegarnaal"
               required
               type="text"
             />

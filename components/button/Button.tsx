@@ -8,7 +8,7 @@ interface ButtonPropsInterface {
   isDisabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   secondary?: boolean;
-  submit?: boolean;
+  type?: "submit" | "button";
 }
 
 export function Button({
@@ -16,6 +16,7 @@ export function Button({
   isDisabled,
   onClick,
   secondary,
+  type,
   ...props
 }: ButtonPropsInterface) {
   return (
@@ -23,7 +24,7 @@ export function Button({
       disabled={isDisabled}
       onClick={onClick}
       secondary={secondary}
-      type="submit"
+      type={type}
       {...props}
     >
       {children}

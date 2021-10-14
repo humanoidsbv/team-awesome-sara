@@ -111,6 +111,18 @@
       "socials": "jada",
       "startDate": "2021-10-13T11:35:09.728Z",
       "id": 6
+    },
+    {
+      "address": "hal",
+      "bio": "sfad",
+      "employeeNumber": "HUM_7",
+      "firstName": "Hallo",
+      "lastName": "Hallo",
+      "locality": "adsd",
+      "postalCode": "hadajd",
+      "socials": "asdasd",
+      "startDate": "Thu Oct 14 2021 14:14:20 GMT+0200 (Central European Summer Time)",
+      "id": 7
     }
   ]
 }
