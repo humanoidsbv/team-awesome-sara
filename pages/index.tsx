@@ -45,7 +45,7 @@ function Homepage() {
   return (
     <>
       <Header />
-      <SearchBar count={timeEntries} title="Timesheets" units="Entries" />
+      <SearchBar count={timeEntries.length} title="Timesheets" units="Entries" />
       <Container>
         {isMobile && !isFormOpen && (
           <NewEntryButtonWrapper

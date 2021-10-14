@@ -33,7 +33,7 @@ export function TeamMembersPage() {
   return (
     <>
       <Header />
-      <SearchBar count={teamMembers} title="Team members" units="Humanoids" />
+      <SearchBar count={teamMembers.length} title="Team members" units="Humanoids" />
       <Container>
         <TeamMembersHeader handleIsFormOpen={handleIsFormOpen} isFormOpen={isFormOpen} />
         {!isFormOpen && <TeamMemberEntries />}

@@ -3,14 +3,14 @@ import React from "react";
 import * as Styled from "./TeamMemberInfo.styled";
 
 interface TeamMemberInfoProps {
-  isDesktop?: boolean;
+  desktopOnly?: boolean;
   subtitle: string;
   title: string;
 }
 
-export function TeamMemberInfo({ isDesktop, subtitle, title }: TeamMemberInfoProps) {
+export function TeamMemberInfo({ desktopOnly, subtitle, title }: TeamMemberInfoProps) {
   return (
-    <Styled.TeamMemberInfo isDesktop={isDesktop}>
+    <Styled.TeamMemberInfo desktopOnly={desktopOnly}>
       <p>{title}</p>
       <p>
         <span>{subtitle}</span>

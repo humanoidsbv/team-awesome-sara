@@ -8,16 +8,16 @@ interface StoreProviderProps {
 }
 
 interface StoreContextProps {
-  teamMembers: [setTeamMembers: Function, teamMembers: TeamMemberInterface[]];
-  timeEntries: [setTimeEntries: Function, timeEntries: TimeEntryInterface[]];
+  teamMembers: [teamMembers: TeamMemberInterface[], setTeamMembers: Function];
+  timeEntries: [timeEntries: TimeEntryInterface[], setTimeEntries: Function];
 }
 
 export const StoreContext = createContext<StoreContextProps>(null);
 
 export function StoreContextProvider({ children }: StoreProviderProps) {
   const context = {
-    teamMembers: useState<TeamMemberInterface[]>([]),
-    timeEntries: useState<TimeEntryInterface[]>([]),
+    teamMembers: useState([]),
+    timeEntries: useState([]),
   };
 
   return <StoreContext.Provider value={context}>{children}</StoreContext.Provider>;

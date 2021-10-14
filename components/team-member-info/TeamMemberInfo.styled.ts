@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const TeamMemberInfo = styled.div<{ isDesktop: boolean }>`
-  display: ${(props) => (props.isDesktop ? "none" : "inline")};
+export const TeamMemberInfo = styled.div<{ desktopOnly: boolean }>`
+  display: ${(props) => (props.desktopOnly ? "none" : "inline")};
 
   @media (${({ theme }) => theme.desktop}) {
     display: inline;
