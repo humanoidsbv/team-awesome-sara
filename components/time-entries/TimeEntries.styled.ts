@@ -13,7 +13,7 @@ export const TimeEntries = styled.div`
   width: 100%;
 
   @media (${({ theme }) => theme.desktop}) {
-    font-size: 24px;
+    font-size: 19px;
     margin: 23px 0 0 0;
   }
 `;

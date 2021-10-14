@@ -4,9 +4,9 @@ export const NewEntryButtonWrapper = styled.div<{ isFormOpen: boolean }>`
   display: ${(props) => (props.isFormOpen ? "none" : "flex")};
   width: 100%;
 
-  > button {
+  /* > button {
     @media (${({ theme }) => theme.desktop}) {
       display: none;
     }
-  }
+  } */
 `;

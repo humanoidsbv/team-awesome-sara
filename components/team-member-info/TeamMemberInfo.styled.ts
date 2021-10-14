@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MemberInfo = styled.div<{ isInvisible: boolean }>`
+export const TeamMemberInfo = styled.div<{ isInvisible: boolean }>`
   display: ${(props) => (props.isInvisible ? "none" : "inline")};
 
   @media (${({ theme }) => theme.desktop}) {

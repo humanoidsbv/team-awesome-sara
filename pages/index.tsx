@@ -15,6 +15,11 @@ function Homepage() {
   const [timeEntries, setTimeEntries] = useContext(StoreContext).timeEntries;
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isDataError, setIsDataError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia("(max-width: 1024px)").matches);
+  }, []);
 
   const fetchTimeEntries = async () => {
     setIsDataError(false);
@@ -42,11 +47,13 @@ function Homepage() {
       <Header />
       <SearchBar count={timeEntries} title="Timesheets" units="Entries" />
       <Container>
-        <NewEntryButtonWrapper
-          handleIsFormOpen={handleIsFormOpen}
-          isFormOpen={isFormOpen}
-          title="New time entry"
-        />
+        {isMobile && !isFormOpen && (
+          <NewEntryButtonWrapper
+            handleIsFormOpen={handleIsFormOpen}
+            isFormOpen={isFormOpen}
+            title="New time entry"
+          />
+        )}
         <TimeEntryForm
           fetchTimeEntries={fetchTimeEntries}
           isFormOpen={isFormOpen}

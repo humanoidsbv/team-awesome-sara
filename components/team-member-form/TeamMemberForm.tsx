@@ -1,45 +1,54 @@
 import React, { useContext, useState } from "react";
 import { StoreContext } from "../../contexts/StoreContext";
 
-import { teamMemberInterface } from "../member-entries/MemberEntries";
+import { TeamMemberInterface } from "../team-member-entries/TeamMemberEntries";
 import { saveTeamMember } from "../../services/team-members-api";
 
-import * as Styled from "./AddMemberContainer.styled";
+import * as Styled from "./TeamMemberForm.styled";
 
-export function AddMemberContainer({ fetchTeamMembers }) {
-  const [newTeamMember, setNewTeamMember] = useState<teamMemberInterface>({});
+interface AddMemberContainerInterface {
+  fetchTeamMembers: Function;
+  setIsFormOpen: (value: React.SetStateAction<boolean>) => void;
+}
+
+export function TeamMemberForm({ fetchTeamMembers, setIsFormOpen }: AddMemberContainerInterface) {
+  const [newTeamMember, setNewTeamMember] = useState<TeamMemberInterface>({});
   const [teamMembers] = useContext(StoreContext).teamMembers;
 
-  const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = ({
+    target,
+  }: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = target;
     setNewTeamMember({ ...newTeamMember, [name]: value });
   };
 
   const handleSubmit = (event: React.BaseSyntheticEvent) => {
+    event.preventDefault();
+
     const updatedTeamMember = {
       address: newTeamMember.address,
       bio: newTeamMember.bio,
-      city: newTeamMember.city,
-      email: newTeamMember.email,
+      email: newTeamMember.emailAddress,
       employeeNumber: `HUM_${teamMembers.length + 1}`,
       firstName: newTeamMember.firstName,
       lastName: newTeamMember.lastName,
+      locality: newTeamMember.locality,
+      postalCode: newTeamMember.postalCode,
       socials: newTeamMember.socials,
-      startDate: new Date(),
-      zipcode: newTeamMember.zipcode,
+      startDate: new Date().toString(),
     };
 
-    event.preventDefault();
     saveTeamMember(updatedTeamMember);
     fetchTeamMembers();
     setNewTeamMember({});
     event.target.reset();
+    setIsFormOpen(false);
   };
 
   const randomNumber = Math.floor(Math.random() * 100000 + 1);
 
   return (
-    <Styled.AddMemberContainer>
+    <Styled.TeamMemberForm>
       <div className="tab-container">
         <div className="tab"> Personal Details</div>
       </div>
@@ -73,11 +82,11 @@ export function AddMemberContainer({ fetchTeamMembers }) {
               />
             </Styled.Label>
           </div>
-          <Styled.Label htmlFor="email">
+          <Styled.Label htmlFor="email-address">
             Email Address
             <Styled.Input
-              id="email"
-              name="email"
+              id="email-address"
+              name="email-address"
               onChange={handleChange}
               placeholder="Niels.Brandhorst@humanoids.nl"
               required
@@ -90,7 +99,6 @@ export function AddMemberContainer({ fetchTeamMembers }) {
             onChange={handleChange}
             placeholder="Niels is a tech savy Architect and Entrepreneur, maintaining a keen interest in software and design tools, such as parametric modelling (Rhino/Grasshopper) and BIM. "
             required
-            type="textarea"
           />
         </div>
         <div className="div-form-right">
@@ -105,23 +113,23 @@ export function AddMemberContainer({ fetchTeamMembers }) {
               type="text"
             />
           </Styled.Label>
-          <div className="zipcode-city">
-            <Styled.Label htmlFor="zipcode">
-              ZIP code
+          <div className="postalCode-locality">
+            <Styled.Label htmlFor="postalCode">
+              Postal Code
               <Styled.Input
-                id="zipcode"
-                name="zipcode"
+                id="postalCode"
+                name="postalCode"
                 onChange={handleChange}
                 placeholder="2521 CJ"
                 required
                 type="text"
               />
             </Styled.Label>
-            <Styled.Label htmlFor="city">
-              City
+            <Styled.Label htmlFor="locality">
+              Locality
               <Styled.Input
-                id="city"
-                name="city"
+                id="locality"
+                name="locality"
                 onChange={handleChange}
                 placeholder="Den Haag"
                 required
@@ -141,6 +149,6 @@ export function AddMemberContainer({ fetchTeamMembers }) {
           </Styled.Label>
         </div>
       </Styled.Form>
-    </Styled.AddMemberContainer>
+    </Styled.TeamMemberForm>
   );
 }

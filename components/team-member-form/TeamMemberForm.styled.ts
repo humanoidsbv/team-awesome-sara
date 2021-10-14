@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AddMemberContainer = styled.div`
+export const TeamMemberForm = styled.div`
   align-items: center;
   border: solid 1px ${({ theme }) => theme.borderColorPrimary};
   border-bottom-right-radius: 4px;
@@ -83,7 +83,7 @@ export const Form = styled.form`
     display: flex;
   }
 
-  .zipcode-city {
+  .postalCode-locality {
     column-gap: 10px;
     display: flex;
   }

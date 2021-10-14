@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MembersSubheader = styled.div`
+export const TeamMembersHeader = styled.div`
   align-items: flex-end;
   column-gap: 12px;
   display: flex;

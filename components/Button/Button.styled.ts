@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const Primary = styled.button`
+export const Button = styled.button<{ disabled: boolean; secondary: boolean }>`
   background-image: linear-gradient(to bottom, #39b54a, #34aa44 98%);
-  border-radius: 4px;
   border: solid 1px #249533;
+  border-radius: 4px;
   color: #ffffff;
   cursor: pointer;
   display: flex;
@@ -17,24 +17,28 @@ export const Primary = styled.button`
   > div > svg {
     fill: #b0edb8;
   }
-`;
 
-export const Secondary = styled(Primary)`
-  background-image: none;
-  background-color: #f5f7f9;
-  border: solid 1px #ced0da;
-  color: #4b5464; ;
-`;
+  ${(props) =>
+    props.secondary &&
+    `
+    background-image: none;
+    background-color: #f5f7f9;
+    border: solid 1px #ced0da;
+    color: #4b5464;
+  `}
 
-export const Disabled = styled(Primary)`
-  align-items: center;
-  background-image: none;
-  background-color: #39b54a;
-  border: none;
+  ${(props) =>
+    props.disabled &&
+    `
+    align-items: center;
+    background-image: none;
+    background-color: #39b54a;
+    border: none;
 
-  :disabled {
-    background-color: #e6eaee;
-    border: 1px solid #999999;
-    color: #68768c;
-  }
+    :disabled {
+      background-color: #e6eaee;
+      border: 1px solid #999999;
+      color: #68768c;
+    }
+  `}
 `;

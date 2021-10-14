@@ -8,3 +8,10 @@ export function getDate(string: string) {
 
   return formattedDate;
 }
+
+export function getMonthYear(string: string) {
+  return new Date(string).toLocaleDateString("default", {
+    month: "long",
+    year: "numeric",
+  });
+}

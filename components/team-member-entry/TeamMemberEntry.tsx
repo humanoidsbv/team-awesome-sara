@@ -1,29 +1,30 @@
 import React, { useState } from "react";
 
-import * as Styled from "./MemberEntry.styled";
+import * as Styled from "./TeamMemberEntry.styled";
 import ArrowDownIcon from "../../public/images/arrow-down2.svg";
-import { MemberInfo } from "../member-info/MemberInfo";
-import { teamMemberInterface } from "../member-entries/MemberEntries";
+import { TeamMemberInfo } from "../team-member-info/TeamMemberInfo";
+import { TeamMemberInterface } from "../team-member-entries/TeamMemberEntries";
+import { getMonthYear } from "../../services/format/date";
 
-interface MemberEntryInterface {
-  teamMember: teamMemberInterface;
+interface TeamMemberEntryInterface {
+  teamMember: TeamMemberInterface;
 }
 
-export function MemberEntry({ teamMember }: MemberEntryInterface) {
+export function TeamMemberEntry({ teamMember }: TeamMemberEntryInterface) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const toggleIsOpen = () => setIsOpen(!isOpen);
 
   const randomNumber = Math.floor(Math.random() * 100000 + 1);
 
   return (
-    <Styled.MemberEntry onClick={toggleIsOpen} isOpen={isOpen}>
+    <Styled.TeamMemberEntry onClick={toggleIsOpen} isOpen={isOpen}>
       <div className="profilediv">
         <Styled.MemberProfileWrapper>
           <img
             src={`https://source.unsplash.com/random/50x50?sig=${randomNumber}`}
             alt="Team member"
           />
-          <MemberInfo
+          <TeamMemberInfo
             title={`${teamMember.firstName} ${teamMember.lastName}`}
             subtitle={teamMember.role}
           />
@@ -34,16 +35,10 @@ export function MemberEntry({ teamMember }: MemberEntryInterface) {
         <p>{`Detailed information about ${teamMember.firstName}`}</p>
       </Styled.DetailedInfoDiv>
       <Styled.AdditionalInfoWrapper isOpen={isOpen}>
-        <MemberInfo isInvisible subtitle="Employee number" title={teamMember.employeeNumber} />
-        <MemberInfo subtitle="Current employer" title="Humanoids" />
-        <MemberInfo
-          subtitle="Starting date"
-          title={new Date(teamMember.startDate).toLocaleString("default", {
-            month: "long",
-            year: "numeric",
-          })}
-        />
+        <TeamMemberInfo isInvisible subtitle="Employee number" title={teamMember.employeeNumber} />
+        <TeamMemberInfo subtitle="Current employer" title="Humanoids" />
+        <TeamMemberInfo subtitle="Starting date" title={getMonthYear(teamMember.startDate)} />
       </Styled.AdditionalInfoWrapper>
-    </Styled.MemberEntry>
+    </Styled.TeamMemberEntry>
   );
 }

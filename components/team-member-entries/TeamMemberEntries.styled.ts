@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MemberEntries = styled.div`
+export const TeamMemberEntries = styled.div`
   cursor: pointer;
   display: flex;
   flex-direction: column;

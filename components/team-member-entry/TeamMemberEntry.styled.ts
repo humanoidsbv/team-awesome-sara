@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MemberEntry = styled.div<{ isOpen: boolean }>`
+export const TeamMemberEntry = styled.div<{ isOpen: boolean }>`
   align-items: ${(props) => (props.isOpen ? "flex-start" : "center")};
   border: solid 1px ${({ theme }) => theme.borderColorPrimary};
   border-radius: 4px;
@@ -77,13 +77,13 @@ export const AdditionalInfoWrapper = styled.div<{ isOpen: boolean }>`
   flex-direction: ${(props) => (props.isOpen ? "column" : "row")};
   padding: 16px;
   row-gap: 16px;
-  width: 100%;
+  width: 80%;
 
   @media (${({ theme }) => theme.desktop}) {
     column-gap: 54px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding: 0 32px;
   }
 `;
