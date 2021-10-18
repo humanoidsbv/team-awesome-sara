@@ -33,7 +33,7 @@ export async function saveTimeEntry(timeEntry: TimeEntryInterface) {
 }
 
 export async function deleteTimeEntry(id: number) {
-  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries/${id}`, {
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}time-entries/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
