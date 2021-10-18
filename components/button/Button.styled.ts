@@ -13,11 +13,9 @@ export const Button = styled.button<{ disabled: boolean; secondary: boolean }>`
   justify-content: center;
   padding: 9px;
   width: 100%;
-
   > div > svg {
     fill: #b0edb8;
   }
-
   ${(props) =>
     props.secondary &&
     `
@@ -26,7 +24,6 @@ export const Button = styled.button<{ disabled: boolean; secondary: boolean }>`
     border: solid 1px #ced0da;
     color: #4b5464;
   `}
-
   ${(props) =>
     props.disabled &&
     `
@@ -34,7 +31,6 @@ export const Button = styled.button<{ disabled: boolean; secondary: boolean }>`
     background-image: none;
     background-color: #39b54a;
     border: none;
-
     :disabled {
       background-color: #e6eaee;
       border: 1px solid #999999;
