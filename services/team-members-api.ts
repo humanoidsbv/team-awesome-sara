@@ -2,7 +2,7 @@ import { NotFoundError } from "./not-found-error";
 import { TeamMemberInterface } from "../components/team-member-entries/TeamMemberEntries";
 
 export async function getTeamMembers(): Promise<TeamMemberInterface[]> {
-  return fetch("http://localhost:3004/team-members", {
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/team-members`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export async function getTeamMembers(): Promise<TeamMemberInterface[]> {
 }
 
 export async function saveTeamMember(teamMember: TeamMemberInterface) {
-  return fetch("http://localhost:3004/team-members", {
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/team-members`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

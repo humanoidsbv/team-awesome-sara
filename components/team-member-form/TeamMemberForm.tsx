@@ -56,6 +56,7 @@ export function TeamMemberForm({ fetchTeamMembers, setIsFormOpen }: AddMemberCon
         <img src={`https://source.unsplash.com/random/50x50?sig=${randomNumber}`} alt="" />
         <p>Edit Picture</p>
       </Styled.ProfilePicture>
+      {/* TO DO: refactor to the React way. Form id points to the submit button with the same id. */}
       <Styled.Form id="my-form" onSubmit={handleSubmit}>
         <div className="div-form-left">
           <div className="full-name-div">
