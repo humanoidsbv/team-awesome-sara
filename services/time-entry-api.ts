@@ -2,7 +2,7 @@ import { TimeEntryInterface } from "../fixtures/time-entries";
 import { NotFoundError } from "./not-found-error";
 
 export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
-  return fetch("http://localhost:3004/time-entries?_sort=startTime&_order=asc", {
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries?_sort=startTime&_order=asc`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export async function getTimeEntries(): Promise<TimeEntryInterface[]> {
 }
 
 export async function saveTimeEntry(timeEntry: TimeEntryInterface) {
-  return fetch("http://localhost:3004/time-entries", {
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export async function saveTimeEntry(timeEntry: TimeEntryInterface) {
 }
 
 export async function deleteTimeEntry(id: number) {
-  return fetch(`http://localhost:3004/time-entries/${id}`, {
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

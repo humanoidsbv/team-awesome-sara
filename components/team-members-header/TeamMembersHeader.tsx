@@ -35,6 +35,7 @@ export function TeamMembersHeader({ handleIsFormOpen, isFormOpen }: TeamMembersH
             <Button onClick={handleIsFormOpen} secondary type="button">
               Cancel
             </Button>
+            {/* TO DO: refactor to the React way. This is the submit button for team member form. */}
             <Button form="my-form" type="submit">
               Save
             </Button>
