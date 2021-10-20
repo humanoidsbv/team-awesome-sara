@@ -37,7 +37,7 @@ export function TeamMemberEntry({ teamMember }: TeamMemberEntryInterface) {
       <Styled.AdditionalInfoWrapper isOpen={isOpen}>
         <TeamMemberInfo desktopOnly subtitle="Employee number" title={teamMember.employeeNumber} />
         <TeamMemberInfo subtitle="Current employer" title="Humanoids" />
-        <TeamMemberInfo subtitle="Starting date" title={getMonthYear(teamMember.startDate)} />
+        <TeamMemberInfo subtitle="Starting date" title={getMonthYear(teamMember.date)} />
       </Styled.AdditionalInfoWrapper>
     </Styled.TeamMemberEntry>
   );

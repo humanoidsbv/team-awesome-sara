@@ -1,8 +1,11 @@
 import { NotFoundError } from "./not-found-error";
 import { TeamMemberInterface } from "../components/team-member-entries/TeamMemberEntries";
 
-export async function getTeamMembers(): Promise<TeamMemberInterface[]> {
-  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/team-members`, {
+export async function getTeamMembers(sortBy: string): Promise<TeamMemberInterface[]> {
+  const order = sortBy.split("-")[1];
+  const sort = sortBy.split("-")[0];
+
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/team-members?_sort=${sort}&_order=${order}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

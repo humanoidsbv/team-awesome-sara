@@ -13,9 +13,10 @@ import { TeamMemberForm } from "../components/team-member-form/TeamMemberForm";
 export function TeamMembersPage() {
   const [teamMembers, setTeamMembers] = useContext(StoreContext).teamMembers;
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [sortBy, setSortBy] = useState("date-asc");
 
   const fetchTeamMembers = async () => {
-    const response = await getTeamMembers();
+    const response = await getTeamMembers(sortBy);
 
     if (response instanceof NotFoundError) {
       return;
@@ -26,7 +27,7 @@ export function TeamMembersPage() {
 
   useEffect(() => {
     fetchTeamMembers();
-  }, []);
+  }, [sortBy]);
 
   const handleIsFormOpen = () => setIsFormOpen(!isFormOpen);
 
@@ -35,7 +36,12 @@ export function TeamMembersPage() {
       <Header />
       <SearchBar count={teamMembers.length} title="Team members" units="Humanoids" />
       <Container>
-        <TeamMembersHeader handleIsFormOpen={handleIsFormOpen} isFormOpen={isFormOpen} />
+        <TeamMembersHeader
+          handleIsFormOpen={handleIsFormOpen}
+          isFormOpen={isFormOpen}
+          setSortBy={setSortBy}
+          sortBy={sortBy}
+        />
         {!isFormOpen && <TeamMemberEntries />}
         {isFormOpen && (
           <TeamMemberForm fetchTeamMembers={fetchTeamMembers} setIsFormOpen={setIsFormOpen} />

@@ -5,31 +5,48 @@ import { StoreContext } from "../../contexts/StoreContext";
 import { getDate } from "../../services/format/date";
 import { TimeEntryDate } from "../time-entry-date/TimeEntryDate";
 import { TimeEntry } from "../time-entry/TimeEntry";
+import { TimeEntryInterface } from "../../fixtures/time-entries";
 
 export interface TimeEntriesProps {
+  filteredTimeEntries: TimeEntryInterface[];
+  handleFilter: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   id?: number;
   onDeleteTimeEntry: (id: number) => Promise<void>;
 }
 
-export function TimeEntries({ onDeleteTimeEntry }: TimeEntriesProps) {
-  const [timeEntries] = useContext(StoreContext).timeEntries;
+export function TimeEntries({
+  filteredTimeEntries,
+  handleFilter,
+  onDeleteTimeEntry,
+}: TimeEntriesProps) {
+  const [clients] = useContext(StoreContext).clients;
 
   return (
     <Styled.TimeEntries>
-      {timeEntries.map((timeEntry, i) => {
+      <Styled.Select onChange={handleFilter} id="sort" name="sort">
+        <option value="all-entries">All entries</option>
+        {clients.map((client) => (
+          <option value={client.name}>{client.name}</option>
+        ))}
+      </Styled.Select>
+      {filteredTimeEntries.map((timeEntry, i) => {
         const currentDate = getDate(timeEntry.startTime);
 
-        const isFirst = i === 0 || currentDate !== getDate(timeEntries[i - 1]?.startTime);
+        const isFirst = i === 0 || currentDate !== getDate(filteredTimeEntries[i - 1]?.startTime);
         const isLast =
-          i === timeEntries.length - 1 || currentDate !== getDate(timeEntries[i + 1]?.startTime);
+          i === filteredTimeEntries.length - 1 ||
+          currentDate !== getDate(filteredTimeEntries[i + 1]?.startTime);
 
         const isTop = isFirst && !isLast;
         const isBottom = !isFirst && isLast;
         const isCenter = !isFirst && !isLast;
 
+        //   (client) => timeEntry.client === client.id && client.name,
+        // );
+
         return (
           <React.Fragment key={timeEntry.id}>
-            {(i === 0 || currentDate !== getDate(timeEntries[i - 1].startTime)) && (
+            {(i === 0 || currentDate !== getDate(filteredTimeEntries[i - 1].startTime)) && (
               <TimeEntryDate date={timeEntry.startTime} />
             )}
             <Styled.TimeEntryWrapper isTop={isTop} isBottom={isBottom} isCenter={isCenter}>
