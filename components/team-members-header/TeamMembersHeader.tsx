@@ -8,9 +8,20 @@ import { Icon } from "../icon/Icon";
 interface TeamMembersHeaderProps {
   handleIsFormOpen: () => void;
   isFormOpen: boolean;
+  setSortBy: (targetValue: string) => void;
+  sortBy: string;
 }
 
-export function TeamMembersHeader({ handleIsFormOpen, isFormOpen }: TeamMembersHeaderProps) {
+export function TeamMembersHeader({
+  handleIsFormOpen,
+  isFormOpen,
+  setSortBy,
+  sortBy,
+}: TeamMembersHeaderProps) {
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortBy(event.target.value);
+  };
+
   return (
     <>
       <Styled.TeamMembersHeader>
@@ -23,8 +34,11 @@ export function TeamMembersHeader({ handleIsFormOpen, isFormOpen }: TeamMembersH
                 New Humanoid
               </Button>
             </Styled.NewMemberButtonWrapper>
-            <select id="sort" name="sort">
-              <option value="name">Sort by</option>
+            <select onChange={handleChange} value={sortBy}>
+              <option value="date-asc">Date ↑</option>
+              <option value="date-desc">Date ↓ </option>
+              <option value="firstName-asc">Name ↑</option>
+              <option value="firstName-desc">Name ↓</option>
             </select>
           </>
         )}

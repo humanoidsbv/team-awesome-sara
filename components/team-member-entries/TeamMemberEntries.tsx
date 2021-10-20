@@ -8,6 +8,7 @@ export interface TeamMemberInterface {
   address?: string;
   bio?: string;
   currentEmployer?: string;
+  date?: string;
   emailAddress?: string;
   employeeNumber?: string;
   firstName?: string;
@@ -17,7 +18,6 @@ export interface TeamMemberInterface {
   postalCode?: string;
   role?: string;
   socials?: string;
-  startDate?: string;
 }
 
 export function TeamMemberEntries() {

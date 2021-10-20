@@ -18,6 +18,12 @@ export const TimeEntries = styled.div`
   }
 `;
 
+export const Select = styled.select`
+  align-self: flex-end;
+  border-radius: 4px;
+  padding: 5px 6px;
+`;
+
 export const TimeEntryWrapper = styled.div<TimeEntryWrapperProps>`
   border-left: solid 4px ${({ theme }) => theme.primaryColor};
   border-radius: 4px;

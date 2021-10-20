@@ -28,14 +28,15 @@ export function TeamMemberForm({ fetchTeamMembers, setIsFormOpen }: AddMemberCon
     const formattedTeamMember = {
       address: newTeamMember.address,
       bio: newTeamMember.bio,
+      date: new Date().toString(),
       emailAddress: newTeamMember.emailAddress,
       employeeNumber: `HUM_${teamMembers.length + 1}`,
       firstName: newTeamMember.firstName,
       lastName: newTeamMember.lastName,
       locality: newTeamMember.locality,
+      name: `${newTeamMember.firstName} ${newTeamMember.lastName}`,
       postalCode: newTeamMember.postalCode,
       socials: newTeamMember.socials,
-      startDate: new Date().toString(),
     };
 
     saveTeamMember(formattedTeamMember);

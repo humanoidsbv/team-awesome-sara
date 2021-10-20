@@ -6,3 +6,8 @@ export interface TimeEntryInterface {
   startTimestamp?: string;
   stopTimestamp?: string;
 }
+
+export interface ClientsInterface {
+  id: string;
+  name: string;
+}
