@@ -8,6 +8,7 @@ import * as Styled from "./TeamMemberForm.styled";
 
 interface AddMemberContainerInterface {
   fetchTeamMembers: Function;
+  // eslint-disable-next-line no-unused-vars
   setIsFormOpen: (value: React.SetStateAction<boolean>) => void;
 }
 

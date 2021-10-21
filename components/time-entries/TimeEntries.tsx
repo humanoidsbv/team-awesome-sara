@@ -9,8 +9,10 @@ import { TimeEntryInterface } from "../../fixtures/time-entries";
 
 export interface TimeEntriesProps {
   filteredTimeEntries: TimeEntryInterface[];
+  // eslint-disable-next-line no-unused-vars
   handleFilter: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   id?: number;
+  // eslint-disable-next-line no-unused-vars
   onDeleteTimeEntry: (id: number) => Promise<void>;
 }
 

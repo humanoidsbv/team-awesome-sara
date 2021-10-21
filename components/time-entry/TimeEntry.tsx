@@ -10,6 +10,7 @@ interface TimeEntryPropsInterface {
   isBottom: boolean;
   isCenter: boolean;
   isTop: boolean;
+  // eslint-disable-next-line no-unused-vars
   onDeleteTimeEntry: (id: number) => Promise<void>;
   startTime: string;
   stopTime: string;
