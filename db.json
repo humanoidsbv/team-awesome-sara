@@ -41,6 +41,13 @@
       "endTime": "2011-12-02T10:02:00.000Z",
       "startTime": "2011-12-02T11:12:00.000Z",
       "id": 7
+    },
+    {
+      "activity": "asdf",
+      "client": "sfsdf",
+      "endTime": "1212-12-12T11:52:28.000Z",
+      "startTime": "1212-12-12T11:52:28.000Z",
+      "id": 8
     }
   ],
   "team-members": [

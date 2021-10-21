@@ -8,5 +8,5 @@ interface HamburgerButtonPropsInterface {
 }
 
 export function HamburgerButton({ isOpen, onClick }: HamburgerButtonPropsInterface) {
-  return <Styled.HamburgerButton isOpen={isOpen} onClick={onClick} />;
+  return <Styled.HamburgerButton data-cy="hamburger-button" isOpen={isOpen} onClick={onClick} />;
 }
