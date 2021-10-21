@@ -8,6 +8,7 @@ import { Icon } from "../icon/Icon";
 interface TeamMembersHeaderProps {
   handleIsFormOpen: () => void;
   isFormOpen: boolean;
+  // eslint-disable-next-line no-unused-vars
   setSortBy: (targetValue: string) => void;
   sortBy: string;
 }

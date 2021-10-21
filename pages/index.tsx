@@ -13,7 +13,7 @@ import { TimeEntryForm } from "../components/time-entry-form/TimeEntryForm";
 import { TimeEntriesError } from "../components/time-entries-error/TimeEntriesError";
 
 function Homepage() {
-  const [clients, setClients] = useContext(StoreContext).clients;
+  const [, setClients] = useContext(StoreContext).clients;
   const [filterBy, setFilterBy] = useState("all-entries");
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isDataError, setIsDataError] = useState(false);
