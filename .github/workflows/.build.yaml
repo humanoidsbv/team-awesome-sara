@@ -13,9 +13,14 @@ jobs:
         with:
           node-version: "16"
 
-      - name: Install, Unit test, Cypress run and Build
-        uses: cypress-io/github-action@v2
+      - name: Install, test and build
         run: |
           npm ci
           npm run test
           npm run build
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+          start: npm run dev
