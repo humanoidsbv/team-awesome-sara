@@ -5,8 +5,8 @@ const mockedTimeEntries = [
     activity: "123",
     client: "123",
     endTime: "123",
-    startTime: "123",
     id: 7,
+    startTime: "123",
   },
 ];
 
