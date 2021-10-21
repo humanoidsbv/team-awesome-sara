@@ -10,7 +10,7 @@ export function Header() {
   const toggleIsOpen = () => setIsOpen(!isOpen);
 
   return (
-    <Styled.Header>
+    <Styled.Header data-cy="header">
       <div>
         <h1>team awesome</h1>
         <HamburgerButton isOpen={isOpen} onClick={toggleIsOpen} />

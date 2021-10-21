@@ -10,7 +10,7 @@ interface NavigationPropsInterface {
 
 export function Navigation({ isOpen }: NavigationPropsInterface) {
   return (
-    <Styled.Navigation isOpen={isOpen}>
+    <Styled.Navigation data-cy="navigation" isOpen={isOpen}>
       <Link href="/">
         <li className={useRouter().pathname === "/" ? "active" : ""}>Timesheets</li>
       </Link>
