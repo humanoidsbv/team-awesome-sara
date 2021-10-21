@@ -21,8 +21,11 @@ it("fetches TimeEntries from the server", () => {
   getTimeEntries();
 
   expect(global.fetch).toHaveBeenCalledTimes(1);
-  expect(global.fetch).toHaveBeenCalledWith(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries`, {
-    headers: { "Content-Type": "application/json" },
-    method: "GET",
-  });
+  expect(global.fetch).toHaveBeenCalledWith(
+    `${process.env.NEXT_PUBLIC_DB_HOST}/time-entries?_sort=startTime&_order=asc`,
+    {
+      headers: { "Content-Type": "application/json" },
+      method: "GET",
+    },
+  );
 });
