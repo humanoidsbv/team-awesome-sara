@@ -38,7 +38,5 @@ export async function deleteTimeEntry(id: number) {
     headers: {
       "Content-Type": "application/json",
     },
-  })
-    .then((response) => response.json())
-    .then((response) => console.log(response));
+  }).then((response) => response.json());
 }
